@@ -1,0 +1,55 @@
+# Stage de build
+FROM node:20-slim AS builder
+
+WORKDIR /app
+
+# Installation de pnpm
+RUN npm install -g pnpm
+
+# Copie des fichiers de dépendances
+COPY package.json pnpm-lock.yaml* ./
+
+# Installation des dépendances avec cache optimisé
+RUN pnpm install --frozen-lockfile
+
+# Copie des fichiers de configuration
+COPY next.config.js .
+COPY tsconfig.json .
+COPY tailwind.config.ts .
+COPY postcss.config.js .
+
+# Copie du code source
+COPY app ./app
+COPY components ./components
+COPY lib ./lib
+COPY public ./public
+
+# Build de l'application
+RUN pnpm build
+
+# Stage de production
+FROM node:20-slim AS runner
+
+WORKDIR /app
+
+# Installation de pnpm
+RUN npm install -g pnpm
+
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+
+# Copie des fichiers nécessaires depuis le stage de build
+COPY --from=builder /app/package.json .
+COPY --from=builder /app/pnpm-lock.yaml .
+COPY --from=builder /app/next.config.js .
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+
+# Installation des dépendances de production uniquement
+RUN pnpm install --prod --frozen-lockfile
+
+# Exposition du port
+EXPOSE 3000
+
+# Commande de démarrage
+CMD ["pnpm", "start"] 

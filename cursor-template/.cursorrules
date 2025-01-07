@@ -1,0 +1,408 @@
+### LECTURE OBLIGATOIRE IMMÉDIATE ###
+# Ce fichier DOIT être lu et appliqué dès le DÉBUT de chaque conversation
+# ⚠️ STOP : Ne pas continuer la conversation avant d'avoir :
+# 1. Lu ce fichier en ENTIER
+
+# Instructions pour EDEN
+
+⚠️ **CRUCIAL** : Au début de chaque conversation, utiliser la commande `date` pour obtenir la date et l'heure exactes. Cette date est LA référence à utiliser :
+- La date retournée par cette commande est TOUJOURS la date correcte
+- Ne JAMAIS remettre en question ou "corriger" cette date
+- Ne pas la comparer avec mes connaissances temporelles internes
+- L'utiliser comme seule source de vérité pour toute référence temporelle
+
+Cette date permet d'avoir des références temporelles précises pour les recherches et les discussions.
+
+## Étape 0 : Analyse du Workspace
+
+⚠️ **CRUCIAL** : Avant toute intervention, je dois **TOUJOURS** analyser l'ensemble du workspace :
+
+1. **Structure du Projet**  
+   - Explorer l'arborescence complète du workspace  
+   - Identifier les différentes applications/services  
+   - Repérer les microservices potentiels  
+   - Comprendre l’architecture globale
+
+2. **Fichiers de Configuration Critiques**  
+   - Analyser tous les `docker-compose.yml` et leurs variantes  
+   - Examiner les `Dockerfile` de chaque service  
+   - Vérifier les fichiers `package.json` et `requirements.txt`  
+   - Identifier les dépendances spécifiques à chaque application
+
+3. **Relations entre Services**  
+   - Comprendre les interactions entre les applications  
+   - Identifier les dépendances entre services  
+   - Repérer les configurations réseau  
+   - Noter les variables d'environnement partagées
+
+⚠️ **NE JAMAIS** commencer à répondre ou suggérer des solutions avant d'avoir une vue d'ensemble complète du workspace
+
+Avant toute action, je dois :
+
+4. Identifier le workspace actuel :
+   - Flowz : 4 dossiers principaux
+     * Backend API (`flowz-backend/`)
+     * Frontend (`flowz-frontend/`)
+     * App RAG + Agent IA (`flowz-rag/`)
+     * Documentation (`flowz-docs/`)
+   - SoccerMind (jojo) :
+     * Backend (`backend/`)
+     * Frontend (`frontend/`)
+   - Moveto :
+     * Site web (`website/`)
+
+5. Vérifier le dossier courant :
+   - Avant d'exécuter une commande, toujours vérifier le chemin actuel
+   - Utiliser `pwd` ou vérifier le path dans les commandes précédentes
+   - S'assurer d'être dans le bon sous-dossier (frontend/backend) selon la tâche
+
+6. Adapter les commandes au contexte :
+   - Les commandes npm/pnpm/yarn doivent être exécutées dans le bon dossier frontend
+   - Les commandes Python/pip dans le bon dossier backend
+   - Toujours utiliser des chemins relatifs au dossier courant
+
+---
+
+⚠️ IMPORTANT : Une erreur de dossier peut causer des problèmes majeurs (mauvaise installation de dépendances, modifications au mauvais endroit, etc.)
+
+## Étape 1 : Prise de Connaissance de la Stack
+1. **Consulter le fichier `cursorconfig.json`** pour :  
+   - Identifier la stack technique complète  
+   - Noter les versions spécifiques utilisées  
+   - Comprendre les dépendances entre les composants  
+   - Mémoriser les commandes d’installation
+
+2. **Examiner l'Infrastructure et le CI/CD** :  
+   - Vérifier les fichiers docker-compose :
+     * Analyser `docker-compose.yml` et ses variantes (`.dev`, `.prod`)
+     * Identifier les services et leurs dépendances
+     * Noter les volumes et networks configurés
+     * Comprendre la configuration des variables d'environnement
+   
+   - Vérifier le dossier `.github` s'il existe :
+     * Examiner `/workflows` pour les GitHub Actions
+     * Comprendre les processus de CI/CD configurés
+     * Identifier les environnements de déploiement
+     * Noter les secrets nécessaires
+   
+   - Si pas de `.github` ou de CI/CD automatisé :
+     * Demander le processus de déploiement manuel
+     * Vérifier les étapes de validation requises
+     * Noter les environnements à gérer
+     * Comprendre la procédure de rollback
+
+   - Pour chaque environnement (dev, staging, prod) :
+     * Vérifier la configuration Docker spécifique
+     * Noter les variables d'environnement requises
+     * Identifier les services externes (Cloudflare, OVH, etc.)
+     * Comprendre le processus de déploiement
+
+3. **Clarifier la Politique de Mises à Jour**  
+   - Vérifier si l’IA doit **proposer** d’éventuelles mises à jour majeures (ex. « LangChain 0.0.120 est sorti »).  
+   - Ou si l’on **respecte strictement** les versions fixées dans `cursorconfig.json`.  
+   - Demander la **politique** du projet : « Souhaitez-vous être proactif sur les upgrades ou rester à la version indiquée ? »
+
+---
+
+## Étape 2 : Vérification des Spécificités du Projet
+
+⚠️ **IMPORTANT** : Chaque projet peut avoir ses particularités. Je dois **TOUJOURS** :
+
+1. **Demander les Spécificités**  
+   - « Y a-t-il des versions différentes de celles du template standard ? »  
+   - « Utilisez-vous des composants ou bibliothèques spécifiques au projet ? »  
+   - « Avez-vous des commandes ou configurations particulières ? »
+
+2. **Vérifier l’Environnement**  
+   - Demander si le projet a son propre fichier de configuration  
+   - Vérifier les dépendances spécifiques au projet  
+   - Confirmer les variables d’environnement nécessaires  
+   - Noter la présence d’éventuels **PaaS** ou **serveurs dédiés**.
+
+3. **Adapter les Réponses**  
+   - Ne pas supposer que tout est identique au template  
+   - Toujours demander confirmation avant d’appliquer une solution standard  
+   - Adapter les suggestions aux **contraintes** spécifiques du projet
+
+---
+
+## Étape 3 : Capacités à Développer
+
+En tant qu’assistant, je dois être capable de :
+
+### 3.1 Frontend (Next.js)
+- Guider la création de composants React avec TypeScript  
+- Implémenter la gestion d’état avec Zustand  
+- Utiliser shadcn/ui et Tailwind CSS  
+- Configurer les tests Vitest et Playwright  
+- ⚠️ Vérifier les composants personnalisés du projet
+
+### 3.2 Backend (Python/FastAPI)
+- Structurer des APIs RESTful  
+- Implémenter le RAG (Retrieval Augmented Generation) avec LangChain et Qdrant  
+- Gérer les bases de données avec Supabase et Drizzle  
+- Configurer Redis pour les files d’attente  
+- ⚠️ Adapter aux spécificités de l’API du projet
+
+### 3.3 DevOps
+- Guider la configuration Docker  
+- Expliquer les workflows CI/CD  
+- Aider au déploiement et à la configuration du reverse-proxy SSL  
+- **Exemples de plateformes** :  
+  - **Coolify** : déploiement d’apps front, usage de Traefik + SSL  
+  - **Cloudflare** : gestion de la zone DNS, workers (redirection), SSL  
+  - **OVH** : noms de domaine  
+- ⚠️ Respecter l’infrastructure spécifique (Coolify, Cloudflare, OVH, Docker, etc.)
+
+### 3.4 Tests Systématiques
+- Tout nouveau code ou feature doit être accompagné de **tests unitaires** et/ou **tests d’intégration**  
+- Front : Vitest, Playwright  
+- Back : Pytest  
+- Prioriser la couverture de code pour les fonctionnalités critiques
+
+---
+
+## Étape 4 : Standards de Réponse
+
+Pour chaque demande, je dois :
+
+1. **Vérifier la Compatibilité**  
+   - Confirmer les versions dans `cursorconfig.json`  
+   - Assurer la cohérence avec la stack existante  
+   - ⚠️ Demander si des modifications ont été apportées
+
+2. **Fournir des Réponses Structurées**  
+   - Inclure les commandes d’installation nécessaires  
+   - Référencer la documentation pertinente  
+   - Expliquer les choix techniques  
+   - ⚠️ Adapter aux conventions du projet
+
+3. **Maintenir la Qualité**  
+   - Suivre les standards TypeScript/Python  
+   - Inclure les **tests appropriés** (unitaires, e2e)  
+   - Respecter les pratiques CI/CD définies  
+   - ⚠️ Respecter les standards spécifiques au projet
+
+---
+
+## Étape 5 : Cas d’Usage Spécifiques
+
+1. **RAG (Retrieval Augmented Generation)**  
+   - Utiliser **LangChain** (versions spécifiées dans `cursorconfig.json`)  
+   - Intégrer **Qdrant** pour le stockage vectoriel  
+   - Optimiser les prompts et embeddings  
+   - Configurer les chaînes de traitement :  
+     * Text Splitters adaptés au contenu  
+     * Embeddings optimisés (coût/performance)  
+     * Prompts templates contextualisés  
+   - Gérer les métadonnées pour le filtrage  
+   - Implémenter des mécanismes de mise à jour incrémentale  
+   - Optimiser les coûts d’API et de stockage  
+   - ⚠️ Vérifier les personnalisations du RAG
+
+2. **Authentification**  
+   - Implémenter Clerk.dev selon les standards  
+   - Gérer les JWT et sessions  
+   - Sécuriser les routes API  
+   - ⚠️ Adapter aux besoins de sécurité spécifiques
+
+3. **Emails**  
+   - Utiliser **React Email** pour les templates  
+   - Configurer **Resend** pour l’envoi  
+   - Gérer les notifications  
+   - ⚠️ Vérifier les templates personnalisés
+
+---
+
+## Étape 6 : Logs & Debug
+
+En cas de logs d’erreur ou de besoin d’observabilité :
+
+1. **Analyse des Logs**  
+   - Repérer la source de l’erreur (frontend, backend, infra)  
+   - Vérifier les configurations de logging (ex. console logs, logger dédié)
+
+2. **Outils d’Observabilité**  
+   - Possibilité de configurer **Sentry**, **Datadog**, ou autre solution similaire  
+   - Si le projet ne souhaite pas de solution tierce, proposer un logger minimaliste (ex. Winston, Pino pour Node.js, Loguru pour Python)
+
+3. **Processus de Debug**  
+   - Toujours commencer par reproduire l’erreur en local  
+   - Vérifier la cohérence de l’environnement (Docker, versions, variables)  
+   - Contrôler l’existence de logs supplémentaires (stack trace, timestamp, etc.)
+
+4. **Adaptation**  
+   - Si un service tiers est utilisé (Sentry), valider l’installation et la configuration (DSN, environnements).  
+   - Vérifier si on déploie derrière un reverse-proxy (ex. Traefik) et si les logs sont centralisés.
+
+---
+
+## Étape 7 : Sécurité & Variables d’Environnement
+
+### 7.1 Gestion des Secrets
+- Ne **JAMAIS** exposer de secrets dans le code  
+- Utiliser les variables d'environnement (`.env`)  
+- Vérifier la présence de `.env.example`  
+- Utiliser les secrets GitHub pour CI/CD  
+- Documenter toute nouvelle variable d'environnement
+
+### 7.2 Bonnes Pratiques de Sécurité
+- Validation des entrées utilisateur  
+- Protection contre les injections (SQL, NoSQL)  
+- Gestion sécurisée des sessions  
+- Rate limiting sur les APIs  
+- Vérification des dépendances (npm audit, safety)
+
+### 7.3 Infrastructure Sécurisée
+- **SSL/TLS** obligatoire en production  
+- Configuration CORS appropriée  
+- Headers de sécurité (HSTS, CSP)  
+- Monitoring des accès suspects  
+- Backup régulier des données  
+- ⚠️ Vérifier la conformité avec les standards de sécurité du projet
+
+---
+
+## Étape 8 : Performance & Optimisation
+
+### 8.1 Frontend Performance
+- Optimisation des images et assets  
+- Code splitting et lazy loading  
+- Mise en cache appropriée  
+- Minimisation des re-renders React  
+- Monitoring des performances (ex. Lighthouse)  
+- ⚠️ Adapter selon les métriques spécifiques du projet
+
+### 8.2 Backend Performance
+- Optimisation des requêtes DB  
+- Mise en cache (Redis)  
+- Gestion efficace des connexions  
+- Monitoring des temps de réponse  
+- Optimisation des embeddings RAG  
+- ⚠️ Vérifier les contraintes de performance du projet
+
+### 8.3 Infrastructure Performance
+- Scaling approprié des conteneurs  
+- Optimisation des builds Docker  
+- CDN pour les assets statiques  
+- Load balancing si nécessaire  
+- Monitoring des ressources  
+- ⚠️ Respecter les limites d'infrastructure définies
+
+---
+
+## Étape 9 : Règles d’Intervention sur le Code
+
+⚠️ **CRUCIAL** : En tant qu'assistant, je dois **TOUJOURS** :
+
+### 9.1 Préservation du Code
+- Ne **JAMAIS** supprimer de code sans autorisation explicite  
+- Toujours proposer les modifications en addition  
+- Conserver l’historique des changements  
+- Documenter les raisons des modifications
+
+### 9.2 Cohérence Stylistique
+- Respecter le style de code existant  
+- Maintenir la cohérence des indentations  
+- Préserver la structure des commentaires  
+- Garder la logique de nommage  
+- Utiliser les mêmes conventions de formatage  
+- ⚠️ Adapter mon style de réponse au format du projet
+
+### 9.3 Documentation
+- Ajouter des commentaires explicatifs  
+- Mettre à jour la documentation existante  
+- Ne pas modifier la structure des docs  
+- Signaler les dépréciations éventuelles
+
+### 9.4 Processus de Modification
+- Proposer les changements de manière incrémentale  
+- Expliquer clairement les modifications  
+- Attendre la validation avant d’appliquer  
+- Garder une trace des décisions  
+- ⚠️ Toujours respecter le workflow établi
+
+---
+
+## Questions Systématiques
+
+Avant chaque intervention, je dois demander :
+
+1. **Configuration**  
+   - "Y a-t-il des modifications par rapport au template standard ?"  
+   - "Avez-vous des fichiers de configuration spécifiques ?"  
+   - "Quelles sont les variables d'environnement à prendre en compte ?"
+
+2. **Dépendances**  
+   - "Utilisez-vous des versions différentes des packages ?"  
+   - "Y a-t-il des bibliothèques supplémentaires ?"  
+   - "Avez-vous des composants personnalisés ?"
+
+3. **Workflow**  
+   - "Suivez-vous des conventions de code particulières ?"  
+   - "Avez-vous des processus de déploiement spécifiques ?"  
+   - "Y a-t-il des contraintes particulières à respecter ?"
+
+---
+
+## Notes Importantes
+
+- Toujours vérifier les versions dans `cursorconfig.json` avant de suggérer des solutions  
+- Privilégier **pnpm** pour la gestion des packages Node.js  
+- ⚠️ Ne pas supposer l'existence d'un CI/CD automatisé
+- Vérifier le processus de déploiement spécifique à chaque projet
+- Maintenir la cohérence avec l'**architecture établie**  
+- ⚠️ Ne jamais supposer que le projet suit **exactement** le template  
+- ⚠️ Toujours demander les **spécificités** avant de procéder  
+- Si l'infrastructure utilise **Coolify**, **Cloudflare**, ou **OVH** :  
+  - Vérifier que la config (DNS, SSL, redirections) est cohérente avec Docker/Traefik  
+  - Poser des questions si besoin d'un déploiement custom
+
+---
+
+## Commandes Rapides de Référence
+
+*(Tu peux compléter avec tous les scripts détaillés déjà présents dans tes versions précédentes.)*
+
+### Utilisation des Variables
+
+```bash
+# Frontend
+pnpm add next@${NEXT_VERSION} react react-dom
+pnpm add zustand@${ZUSTAND_VERSION}
+pnpm add -D tailwindcss@${TAILWIND_VERSION}
+
+# Backend
+python -m venv .venv
+pip install langchain==${LANGCHAIN_VERSION}
+pip install black==${BLACK_VERSION}
+pip install pytest==${PYTEST_VERSION}
+
+Vérification des Versions
+check_versions() {
+  echo "Frontend Stack:"
+  echo "- ${NEXT_DOC} v${NEXT_VERSION}"
+  ...
+  echo "Backend Stack:"
+  echo "- ${LANGCHAIN_DOC} v${LANGCHAIN_VERSION}"
+  ...
+}
+
+Commandes Docker
+docker_setup() {
+  echo "Using Docker v${DOCKER_VERSION}"
+  echo "Using Docker Compose v${DOCKER_COMPOSE_VERSION}"
+  docker-compose up
+}
+
+RAG Setup
+rag_setup() {
+  echo "Setting up RAG with LangChain v${LANGCHAIN_VERSION} and Qdrant v${QDRANT_VERSION}"
+  pip install langchain==${LANGCHAIN_VERSION}
+  pip install qdrant-client==${QDRANT_VERSION}
+}
+
+
+
+
+

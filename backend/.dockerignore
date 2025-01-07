@@ -1,0 +1,33 @@
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv
+venv
+env
+ENV
+.env
+.coverage
+.pytest_cache
+.mypy_cache
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Local development
+data/
+tests/
+docs/
+
+# Misc
+.DS_Store
+.git
+.gitignore 

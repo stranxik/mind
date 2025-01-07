@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile.prod
+    expose:
+      - "8000"
+    environment:
+      - FOOTBALL_DATA_API_KEY=${FOOTBALL_DATA_API_KEY}
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - ENVIRONMENT=production
+      - LOG_LEVEL=info
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS:-*}
+      - CORS_ORIGINS=${CORS_ORIGINS:-https://*.your-domain.com}
+    volumes:
+      - ./data/chroma_db:/app/data/chroma_db
+    depends_on:
+      - ollama
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama
+    expose:
+      - "11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    entrypoint: ["ollama"]
+    command: ["serve"]
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+    expose:
+      - "3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=/api
+      - NEXT_TELEMETRY_DISABLED=1
+      - NEXT_PUBLIC_CLOUDFLARE_ANALYTICS=${NEXT_PUBLIC_CLOUDFLARE_ANALYTICS:-}
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
+
+networks:
+  app-network:
+    driver: bridge
