@@ -15,19 +15,19 @@ export default function IntensityPage() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader>
-            <CardTitle>Charge hebdomadaire</CardTitle>
-            <CardDescription>Charge actuelle vs cible</CardDescription>
+            <CardTitle>Weekly Load</CardTitle>
+            <CardDescription>Current vs target load</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{teamStats?.weeklyLoad.current.toFixed(0)}</div>
-            <p className="text-sm text-gray-400">Cible: {teamStats?.weeklyLoad.target.toFixed(0)}</p>
+            <p className="text-sm text-gray-400">Target: {teamStats?.weeklyLoad.target.toFixed(0)}</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
             <CardTitle>Variation</CardTitle>
-            <CardDescription>Par rapport à la semaine précédente</CardDescription>
+            <CardDescription>Compared to previous week</CardDescription>
           </CardHeader>
           <CardContent>
             <div className={`text-2xl font-bold ${
@@ -50,18 +50,18 @@ export default function IntensityPage() {
         <Card>
           <CardHeader>
             <CardTitle>Sessions</CardTitle>
-            <CardDescription>Entraînements cette semaine</CardDescription>
+            <CardDescription>Training sessions this week</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{teamStats?.weeklyTraining.sessions}</div>
-            <p className="text-sm text-gray-400">{teamStats?.weeklyTraining.totalDuration}h au total</p>
+            <p className="text-sm text-gray-400">{teamStats?.weeklyTraining.totalDuration}h total</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Intensité moyenne</CardTitle>
-            <CardDescription>Cette semaine</CardDescription>
+            <CardTitle>Average Intensity</CardTitle>
+            <CardDescription>This week</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{teamStats?.weeklyTraining.averageIntensity}%</div>
@@ -72,8 +72,8 @@ export default function IntensityPage() {
       <div className="mt-8">
         <Card>
           <CardHeader>
-            <CardTitle>Répartition par joueur</CardTitle>
-            <CardDescription>Charge et intensité individuelles</CardDescription>
+            <CardTitle>Player Distribution</CardTitle>
+            <CardDescription>Individual load and intensity</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -85,9 +85,9 @@ export default function IntensityPage() {
                   </div>
                   <div className="flex items-center space-x-4">
                     <div className="text-right">
-                      <p className="font-medium">Charge: {player.weeklyStats.load.current.toFixed(0)}</p>
+                      <p className="font-medium">Load: {player.weeklyStats.load.current.toFixed(0)}</p>
                       <p className="text-sm text-gray-400">
-                        {player.weeklyStats.load.variation > 0 ? '+' : ''}{player.weeklyStats.load.variation}% vs sem. précédente
+                        {player.weeklyStats.load.variation > 0 ? '+' : ''}{player.weeklyStats.load.variation}% vs prev. week
                       </p>
                     </div>
                     <Badge
@@ -100,10 +100,10 @@ export default function IntensityPage() {
                       }
                     >
                       {player.weeklyStats.load.variation > 15
-                        ? "Élevée"
+                        ? "High"
                         : player.weeklyStats.load.variation > 5
-                        ? "Modérée"
-                        : "Optimale"}
+                        ? "Moderate"
+                        : "Optimal"}
                     </Badge>
                   </div>
                 </div>

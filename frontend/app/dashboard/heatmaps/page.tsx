@@ -42,7 +42,7 @@ export default function HeatmapsPage() {
     return (
       <Alert variant="destructive" className="m-8">
         <AlertCircle className="h-4 w-4" />
-        <AlertTitle>Erreur</AlertTitle>
+        <AlertTitle>Error</AlertTitle>
         <AlertDescription>{error}</AlertDescription>
       </Alert>
     )
@@ -52,9 +52,9 @@ export default function HeatmapsPage() {
     return (
       <Alert className="m-8">
         <AlertCircle className="h-4 w-4" />
-        <AlertTitle>Aucune donnée</AlertTitle>
+        <AlertTitle>No Data</AlertTitle>
         <AlertDescription>
-          Aucune donnée de heatmap n'est disponible pour le moment.
+          No heatmap data is currently available.
         </AlertDescription>
       </Alert>
     )

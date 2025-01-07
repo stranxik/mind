@@ -93,7 +93,7 @@ export default function LoginPage() {
 
                   <div className="space-y-2">
                     <label htmlFor="password" className="text-sm font-medium">
-                      Mot de passe
+                      Password
                     </label>
                     <div className="relative">
                       <Lock className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
@@ -113,10 +113,10 @@ export default function LoginPage() {
                   <div className="flex items-center justify-between">
                     <label className="flex items-center space-x-2">
                       <input type="checkbox" className="form-checkbox" />
-                      <span className="text-sm text-muted-foreground">Se souvenir de moi</span>
+                      <span className="text-sm text-muted-foreground">Remember me</span>
                     </label>
                     <Link href="/reset-password" className="text-sm text-primary hover:underline">
-                      Mot de passe oublié ?
+                      Forgot password?
                     </Link>
                   </div>
 
@@ -128,10 +128,10 @@ export default function LoginPage() {
                       disabled={loading}
                     >
                       {loading ? (
-                        "Connexion en cours..."
+                        "Connecting..."
                       ) : (
                         <>
-                          Se connecter
+                          Sign in
                           <ArrowRight className="ml-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                         </>
                       )}
@@ -141,9 +141,9 @@ export default function LoginPage() {
 
                 <div className="mt-6 text-center">
                   <p className="text-sm text-muted-foreground">
-                    Pas encore de compte ?{" "}
+                    Don't have an account yet?{" "}
                     <Link href="/register" className="text-primary hover:underline">
-                      S'inscrire
+                      Sign up
                     </Link>
                   </p>
                 </div>

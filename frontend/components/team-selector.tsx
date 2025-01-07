@@ -19,7 +19,7 @@ export function TeamSelector() {
     <div className="w-[200px]">
       <Select value={selectedTeam} onValueChange={setSelectedTeam}>
         <SelectTrigger>
-          <SelectValue placeholder="Sélectionner une équipe" />
+          <SelectValue placeholder="Select a team" />
         </SelectTrigger>
         <SelectContent>
           {availableTeams.map((team) => (

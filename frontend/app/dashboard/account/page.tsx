@@ -70,16 +70,16 @@ export default function AccountPage() {
     <div className="container mx-auto py-10">
       <Card>
         <CardHeader>
-          <CardTitle>Mon Compte</CardTitle>
+          <CardTitle>My Account</CardTitle>
           <CardDescription>
-            Gérez vos informations personnelles et votre mot de passe
+            Manage your personal information and password
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-6">
-            {/* Informations personnelles */}
+            {/* Personal Information */}
             <div className="space-y-4">
-              <h3 className="text-lg font-medium">Informations personnelles</h3>
+              <h3 className="text-lg font-medium">Personal Information</h3>
               <div className="grid gap-4">
                 <div className="grid gap-2">
                   <Label htmlFor="email">Email</Label>
@@ -92,7 +92,7 @@ export default function AccountPage() {
                   />
                 </div>
                 <div className="grid gap-2">
-                  <Label htmlFor="name">Nom d'utilisateur</Label>
+                  <Label htmlFor="name">Username</Label>
                   <Input
                     id="name"
                     value={formData.name}
@@ -103,12 +103,12 @@ export default function AccountPage() {
               </div>
             </div>
 
-            {/* Changement de mot de passe */}
+            {/* Password Change */}
             <div className="space-y-4">
-              <h3 className="text-lg font-medium">Changer le mot de passe</h3>
+              <h3 className="text-lg font-medium">Change Password</h3>
               <div className="grid gap-4">
                 <div className="grid gap-2">
-                  <Label htmlFor="currentPassword">Mot de passe actuel</Label>
+                  <Label htmlFor="currentPassword">Current Password</Label>
                   <Input
                     id="currentPassword"
                     type="password"
@@ -118,7 +118,7 @@ export default function AccountPage() {
                   />
                 </div>
                 <div className="grid gap-2">
-                  <Label htmlFor="newPassword">Nouveau mot de passe</Label>
+                  <Label htmlFor="newPassword">New Password</Label>
                   <Input
                     id="newPassword"
                     type="password"
@@ -128,7 +128,7 @@ export default function AccountPage() {
                   />
                 </div>
                 <div className="grid gap-2">
-                  <Label htmlFor="confirmPassword">Confirmer le mot de passe</Label>
+                  <Label htmlFor="confirmPassword">Confirm Password</Label>
                   <Input
                     id="confirmPassword"
                     type="password"
@@ -158,11 +158,11 @@ export default function AccountPage() {
                 setIsEditing(!isEditing)
               }}
             >
-              {isEditing ? 'Annuler' : 'Modifier'}
+              {isEditing ? 'Cancel' : 'Edit'}
             </Button>
             {isEditing && (
               <Button type="submit">
-                Enregistrer les modifications
+                Save Changes
               </Button>
             )}
           </CardFooter>

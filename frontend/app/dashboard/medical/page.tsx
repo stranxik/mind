@@ -3,7 +3,7 @@
 import { useMedical } from "@/hooks/useMedical"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { format } from "date-fns"
-import { fr } from "date-fns/locale"
+import { enUS } from "date-fns/locale"
 import { Badge } from "@/components/ui/badge"
 
 export default function MedicalPage() {
@@ -12,13 +12,13 @@ export default function MedicalPage() {
   const teamStats = getTeamStats()
 
   if (loading) {
-    return <div className="flex items-center justify-center h-screen">Chargement...</div>
+    return <div className="flex items-center justify-center h-screen">Loading...</div>
   }
 
   if (error) {
     return (
       <div className="flex items-center justify-center h-screen text-red-500">
-        Erreur: {error}
+        Error: {error}
       </div>
     )
   }
@@ -28,8 +28,8 @@ export default function MedicalPage() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader>
-            <CardTitle>Blessures actuelles</CardTitle>
-            <CardDescription>Nombre de joueurs blessés</CardDescription>
+            <CardTitle>Current Injuries</CardTitle>
+            <CardDescription>Number of injured players</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{teamStats?.currentlyInjured}</div>
@@ -38,20 +38,20 @@ export default function MedicalPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Durée moyenne</CardTitle>
-            <CardDescription>Durée moyenne des blessures</CardDescription>
+            <CardTitle>Average Duration</CardTitle>
+            <CardDescription>Average injury duration</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
-              {teamStats?.averageInjuryDuration} jours
+              {teamStats?.averageInjuryDuration} days
             </div>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Types de blessures</CardTitle>
-            <CardDescription>Répartition par type</CardDescription>
+            <CardTitle>Injury Types</CardTitle>
+            <CardDescription>Distribution by type</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
@@ -67,15 +67,15 @@ export default function MedicalPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Distribution des risques</CardTitle>
-            <CardDescription>Niveau de risque par joueur</CardDescription>
+            <CardTitle>Risk Distribution</CardTitle>
+            <CardDescription>Risk level per player</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
               {Object.entries(teamStats?.riskDistribution || {}).map(([level, count], index) => (
                 <div key={index} className="flex justify-between items-center">
                   <span className="text-sm">{level}</span>
-                  <span className="text-sm text-gray-400">{count} joueurs</span>
+                  <span className="text-sm text-gray-400">{count} players</span>
                 </div>
               ))}
             </div>
@@ -86,8 +86,8 @@ export default function MedicalPage() {
       <div className="mt-8">
         <Card>
           <CardHeader>
-            <CardTitle>Blessures actuelles</CardTitle>
-            <CardDescription>Liste des joueurs actuellement blessés</CardDescription>
+            <CardTitle>Current Injuries</CardTitle>
+            <CardDescription>List of currently injured players</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -102,11 +102,11 @@ export default function MedicalPage() {
                   <div className="flex items-center space-x-4">
                     <div className="text-right">
                       <p className="text-sm text-gray-400">
-                        Depuis le {format(new Date(injury.startDate), 'dd MMM yyyy', { locale: fr })}
+                        Since {format(new Date(injury.startDate), 'dd MMM yyyy', { locale: enUS })}
                       </p>
                       {injury.expectedReturn && (
                         <p className="text-sm">
-                          Retour prévu: {format(new Date(injury.expectedReturn), 'dd MMM yyyy', { locale: fr })}
+                          Expected return: {format(new Date(injury.expectedReturn), 'dd MMM yyyy', { locale: enUS })}
                         </p>
                       )}
                     </div>
@@ -120,10 +120,10 @@ export default function MedicalPage() {
                       }
                     >
                       {injury.severity === "high"
-                        ? "Grave"
+                        ? "Severe"
                         : injury.severity === "medium"
-                        ? "Modérée"
-                        : "Légère"}
+                        ? "Moderate"
+                        : "Minor"}
                     </Badge>
                   </div>
                 </div>

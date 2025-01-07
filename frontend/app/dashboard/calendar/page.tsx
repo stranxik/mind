@@ -4,7 +4,7 @@ import { useCalendar } from "@/hooks/useCalendar"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { format } from "date-fns"
-import { fr } from "date-fns/locale"
+import { enUS } from "date-fns/locale"
 
 export default function CalendarPage() {
   const { getAllEvents } = useCalendar()
@@ -15,45 +15,45 @@ export default function CalendarPage() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader>
-            <CardTitle>Prochain match</CardTitle>
-            <CardDescription>Prochain événement</CardDescription>
+            <CardTitle>Next Match</CardTitle>
+            <CardDescription>Next event</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">PSG vs OM</div>
-            <p className="text-sm text-gray-400">15 Mars 2024</p>
+            <p className="text-sm text-gray-400">March 15, 2024</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Entraînements</CardTitle>
-            <CardDescription>Cette semaine</CardDescription>
+            <CardTitle>Training</CardTitle>
+            <CardDescription>This week</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">4</div>
-            <p className="text-sm text-gray-400">sessions prévues</p>
+            <p className="text-sm text-gray-400">scheduled sessions</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Récupération</CardTitle>
-            <CardDescription>Jours de repos</CardDescription>
+            <CardTitle>Recovery</CardTitle>
+            <CardDescription>Rest days</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">2</div>
-            <p className="text-sm text-gray-400">jours programmés</p>
+            <p className="text-sm text-gray-400">scheduled days</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Événements</CardTitle>
-            <CardDescription>Cette semaine</CardDescription>
+            <CardTitle>Events</CardTitle>
+            <CardDescription>This week</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">8</div>
-            <p className="text-sm text-gray-400">au total</p>
+            <p className="text-sm text-gray-400">in total</p>
           </CardContent>
         </Card>
       </div>
@@ -61,8 +61,8 @@ export default function CalendarPage() {
       <div className="mt-8">
         <Card>
           <CardHeader>
-            <CardTitle>Planning de la semaine</CardTitle>
-            <CardDescription>Tous les événements à venir</CardDescription>
+            <CardTitle>Weekly Schedule</CardTitle>
+            <CardDescription>All upcoming events</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -72,7 +72,7 @@ export default function CalendarPage() {
                     <div>
                       <p className="font-medium">{event.title}</p>
                       <p className="text-sm text-gray-400">
-                        {format(new Date(event.startDate), 'EEEE dd MMMM - HH:mm', { locale: fr })}
+                        {format(new Date(event.startDate), 'EEEE dd MMMM - HH:mm', { locale: enUS })}
                       </p>
                     </div>
                   </div>
@@ -89,8 +89,8 @@ export default function CalendarPage() {
                       {event.type === "match"
                         ? "Match"
                         : event.type === "training"
-                        ? "Entraînement"
-                        : "Autre"}
+                        ? "Training"
+                        : "Other"}
                     </Badge>
                   </div>
                 </div>

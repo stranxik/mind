@@ -11,16 +11,16 @@ import { RagAnimation, LearningAnimation, InterfaceAnimation } from "@/component
 
 const navigation = [
   {
-    name: "Produit",
+    name: "Product",
     items: [
-      { name: "Fonctionnalités", href: "#features", isAnchor: true },
-      { name: "Technologie", href: "#technology", isAnchor: true },
-      { name: "Tarifs", href: "#pricing", isAnchor: true },
+      { name: "Features", href: "#features", isAnchor: true },
+      { name: "Technology", href: "#technology", isAnchor: true },
+      { name: "Pricing", href: "#pricing", isAnchor: true },
       { name: "Roadmap", href: "/roadmap", isAnchor: false }
     ]
   },
   {
-    name: "Ressources",
+    name: "Resources",
     items: [
       { name: "Blog", href: "/blog", isAnchor: false },
       { name: "Support", href: "/support", isAnchor: false }
@@ -31,53 +31,53 @@ const navigation = [
 const features = [
   {
     icon: <Brain className="h-8 w-8" />,
-    title: "IA Prédictive",
-    description: "Prédictions précises des performances et résultats basées sur l'analyse de millions de données"
+    title: "Predictive AI",
+    description: "Accurate predictions of performance and results based on millions of data points"
   },
   {
     icon: <Activity className="h-8 w-8" />,
-    title: "Suivi en temps réel",
-    description: "Suivez l'état de forme, les statistiques et l'actualité de vos joueurs favoris en direct"
+    title: "Real-time Tracking",
+    description: "Monitor form, statistics and news of your favorite players in real time"
   },
   {
     icon: <Shield className="h-8 w-8" />,
-    title: "État physique",
-    description: "Analyse détaillée de la condition physique et des risques de blessures des joueurs"
+    title: "Physical Condition",
+    description: "Detailed analysis of players' physical condition and injury risks"
   },
   {
     icon: <Bell className="h-8 w-8" />,
-    title: "Alertes personnalisées",
-    description: "Notifications sur mesure pour les matchs, transferts, blessures et actualités de vos équipes"
+    title: "Custom Alerts",
+    description: "Tailored notifications for matches, transfers, injuries and team news"
   },
   {
     icon: <BarChart2 className="h-8 w-8" />,
-    title: "Statistiques avancées",
-    description: "Visualisations détaillées des performances individuelles et collectives"
+    title: "Advanced Statistics",
+    description: "Detailed visualizations of individual and team performances"
   },
   {
     icon: <Zap className="h-8 w-8" />,
-    title: "Analyse tactique",
-    description: "Compréhension approfondie des systèmes de jeu et des performances tactiques"
+    title: "Tactical Analysis",
+    description: "Deep understanding of game systems and tactical performances"
   }
 ]
 
 const techFeatures = [
   {
     icon: <Target className="h-12 w-12 text-white" />,
-    title: "Rag (Retrieval augmented generation)",
-    description: "Notre système d'IA utilise les dernières avancées en RAG pour fournir des analyses contextuelles précises basées sur des données historiques et en temps réel.",
+    title: "RAG (Retrieval augmented generation)",
+    description: "Our AI system uses the latest advances in RAG to provide accurate contextual analysis based on historical and real-time data.",
     video: "football1.mp4"
   },
   {
     icon: <Brain className="h-12 w-12 text-white" />,
-    title: "Apprentissage continu",
-    description: "L'IA s'améliore constamment en apprenant des données de votre équipe, créant un système toujours plus précis et personnalisé.",
+    title: "Continuous Learning",
+    description: "The AI continuously improves by learning from your team's data, creating an increasingly accurate and personalized system.",
     video: "football2.mp4"
   },
   {
     icon: <Smartphone className="h-12 w-12 text-white" />,
-    title: "Interface adaptative",
-    description: "Une expérience utilisateur unique qui s'adapte aux besoins spécifiques de chaque membre du staff technique.",
+    title: "Adaptive Interface",
+    description: "A unique user experience that adapts to the specific needs of each technical staff member.",
     video: "football3.mp4"
   }
 ]
@@ -85,64 +85,64 @@ const techFeatures = [
 const plans = [
   {
     name: "Fan",
-    price: "0€",
-    period: "/mois",
-    description: "Pour suivre son équipe",
+    price: "$0",
+    period: "/month",
+    description: "To follow your team",
     features: [
-      "1 équipe favorite",
-      "Stats de base des joueurs",
-      "Actualités de l'équipe",
-      "Prédictions des matchs",
-      "Forum communautaire"
+      "1 favorite team",
+      "Basic player stats",
+      "Team news",
+      "Match predictions",
+      "Community forum"
     ]
   },
   {
     name: "Supporter",
-    price: "9.99€",
-    period: "/mois",
-    description: "Pour les passionnés",
+    price: "$9.99",
+    period: "/month",
+    description: "For passionate fans",
     features: [
-      "3 équipes favorites",
-      "Stats détaillées des joueurs",
-      "Analyse des performances",
-      "Prédictions avancées",
-      "Alertes personnalisées",
-      "Historique complet"
+      "3 favorite teams",
+      "Detailed player stats",
+      "Performance analysis",
+      "Advanced predictions",
+      "Custom alerts",
+      "Complete history"
     ]
   },
   {
     name: "Ultra",
-    price: "19.99€",
-    period: "/mois",
-    description: "Pour les experts",
+    price: "$19.99",
+    period: "/month",
+    description: "For experts",
     features: [
-      "Équipes illimitées",
-      "Stats en temps réel",
-      "Analyse IA approfondie",
-      "Prédictions précises",
-      "Données physiques des joueurs",
-      "Accès aux données historiques"
+      "Unlimited teams",
+      "Real-time stats",
+      "In-depth AI analysis",
+      "Precise predictions",
+      "Player physical data",
+      "Access to historical data"
     ]
   }
 ]
 
 const testimonials = [
   {
-    quote: "Je ne rate plus aucune information sur mon équipe favorite. Les prédictions sont bluffantes !",
+    quote: "I never miss any information about my favorite team. The predictions are amazing!",
     author: "Thomas Martin",
-    role: "Supporter passionné",
+    role: "Passionate Supporter",
     team: "Olympique Lyonnais"
   },
   {
-    quote: "L'analyse des performances m'aide à mieux comprendre le jeu de mon équipe.",
+    quote: "Performance analysis helps me better understand my team's game.",
     author: "Sarah Dubois",
-    role: "Fan engagée",
+    role: "Dedicated Fan",
     team: "PSG"
   },
   {
-    quote: "Les statistiques en temps réel et les alertes sont indispensables pour suivre mes équipes.",
+    quote: "Real-time statistics and alerts are essential for following my teams.",
     author: "Lucas Bernard",
-    role: "Ultra supporter",
+    role: "Ultra Supporter",
     team: "AS Monaco"
   }
 ]
@@ -169,7 +169,7 @@ export default function HomePage() {
             <div className="space-y-12">
               <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-base text-white">
                 <span className="flex h-2 w-2 rounded-full bg-primary mr-2"></span>
-                Intelligence Artificielle & Football
+                Artificial Intelligence & Football
               </div>
               
               <div>
@@ -179,8 +179,8 @@ export default function HomePage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <span className="text-white">L'IA</span> pour suivre{" "}
-                  <span className="text-white"><br></br>vos équipes</span>
+                  <span className="text-white">AI</span> to track{" "}
+                  <span className="text-white"><br></br>your teams</span>
                 </motion.h1>
                 <motion.p 
                   className="mt-8 text-xl text-muted-foreground max-w-2xl"
@@ -188,8 +188,8 @@ export default function HomePage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
                 >
-                  Première plateforme qui combine intelligence artificielle et analyse sportive 
-                  pour suivre vos équipes favorites.
+                  First platform that combines artificial intelligence and sports analytics 
+                  to track your favorite teams.
                 </motion.p>
               </div>
 
@@ -203,7 +203,7 @@ export default function HomePage() {
                   <div className="relative group">
                     <div className="absolute -inset-2 bg-gradient-to-r from-primary/30 to-primary/20 blur-xl rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
                     <Button size="lg" className="relative bg-gradient-to-r from-primary to-primary hover:from-primary/80 hover:to-primary/60 w-full sm:w-auto text-lg h-16 px-8">
-                      Créer un compte
+                      Create Account
                       <ArrowRight className="ml-2 h-6 w-6" />
                     </Button>
                   </div>
@@ -211,7 +211,7 @@ export default function HomePage() {
                 <div className="relative group">
                   <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-primary/10 blur-xl rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
                   <Button size="lg" variant="outline" className="relative w-full sm:w-auto text-lg h-16 px-8 group">
-                    <span>Voir la démo</span>
+                    <span>Watch Demo</span>
                     <motion.span
                       className="ml-2 inline-block"
                       initial={{ rotate: 0 }}
@@ -232,8 +232,8 @@ export default function HomePage() {
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
                 {[
-                  { value: "15", label: "Équipes suivies" },
-                  { value: "98%", label: "Précision des prédictions" },
+                  { value: "15", label: "Teams tracked" },
+                  { value: "98%", label: "Prediction accuracy" },
                 ].map((stat, index) => (
                   <div key={index} className="space-y-3">
                     <h3 className="text-4xl font-bold text-white">{stat.value}</h3>
@@ -271,9 +271,9 @@ export default function HomePage() {
                       {/* Sample Chart or Stats */}
                       <div className="grid grid-cols-3 gap-6">
                         {[
-                          { label: "Vitesse", value: "32.4 km/h", trend: "+2.5%" },
+                          { label: "Speed", value: "9.0 m/s", trend: "+2.5%" },
                           { label: "Distance", value: "12.8 km", trend: "+1.2%" },
-                          { label: "Intensité", value: "85%", trend: "+4.8%" }
+                          { label: "Intensity", value: "85%", trend: "+4.8%" }
                         ].map((metric, index) => (
                           <div key={index} className="bg-background/50 rounded-lg p-4">
                             <p className="text-base text-muted-foreground">{metric.label}</p>
@@ -286,9 +286,9 @@ export default function HomePage() {
                       {/* Sample Activity Feed */}
                       <div className="space-y-4 mt-8">
                         {[
-                          { icon: <Bell className="h-5 w-5" />, text: "Risque de fatigue détecté" },
-                          { icon: <Activity className="h-5 w-5" />, text: "Performance optimale" },
-                          { icon: <Shield className="h-5 w-5" />, text: "Prévention active" }
+                          { icon: <Bell className="h-5 w-5" />, text: "Fatigue risk detected" },
+                          { icon: <Activity className="h-5 w-5" />, text: "Optimal performance" },
+                          { icon: <Shield className="h-5 w-5" />, text: "Active prevention" }
                         ].map((item, index) => (
                           <div key={index} className="flex items-center space-x-4 text-base">
                             <div className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white">
@@ -311,8 +311,8 @@ export default function HomePage() {
                         <Brain className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <p className="text-lg font-medium">IA Prédictive</p>
-                        <p className="text-base text-muted-foreground">Analyse en temps réel</p>
+                        <p className="text-lg font-medium">Predictive AI</p>
+                        <p className="text-base text-muted-foreground">Real-time analysis</p>
                       </div>
                     </div>
                   </div>
@@ -333,22 +333,22 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold mb-4">Technologies de pointe</h2>
+            <h2 className="text-3xl font-bold mb-4">Cutting-edge Technologies</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Notre plateforme utilise les dernières avancées en intelligence artificielle 
-              pour vous offrir une nouvelle façon de vivre le football.
+              Our platform uses the latest advances in artificial intelligence 
+              to offer you a new way to experience football.
             </p>
           </motion.div>
 
           <div className="space-y-32">
-            {/* Section RAG */}
+            {/* RAG Section */}
             <div className="flex flex-col lg:flex-row items-center gap-16">
               <div className="flex-1">
                 <div className="relative group">
                   <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-primary/5 blur-xl rounded-xl transition-all duration-300 group-hover:from-primary/30 group-hover:to-primary/20 group-hover:-inset-5" />
                   <div className="relative bg-card/50 backdrop-blur-sm border border-border p-8 rounded-xl transition-all duration-300 group-hover:border-primary/50">
-                    <h3 className="text-2xl font-bold mb-4">Analyse contextuelle</h3>
-                    <p className="text-muted-foreground">Notre système d'IA analyse en profondeur l'historique et le contexte actuel pour vous fournir des informations pertinentes sur vos équipes favorites.</p>
+                    <h3 className="text-2xl font-bold mb-4">Contextual Analysis</h3>
+                    <p className="text-muted-foreground">Our AI system deeply analyzes historical data and current context to provide relevant information about your favorite teams.</p>
                   </div>
                 </div>
               </div>
@@ -359,14 +359,14 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Section Apprentissage */}
+            {/* Learning Section */}
             <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
               <div className="flex-1">
                 <div className="relative group">
                   <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-primary/5 blur-xl rounded-xl transition-all duration-300 group-hover:from-primary/30 group-hover:to-primary/20 group-hover:-inset-5" />
                   <div className="relative bg-card/50 backdrop-blur-sm border border-border p-8 rounded-xl transition-all duration-300 group-hover:border-primary/50">
-                    <h3 className="text-2xl font-bold mb-4">Compréhension du jeu</h3>
-                    <p className="text-muted-foreground">L'IA apprend en permanence des matchs et des performances pour vous offrir une vision toujours plus précise et personnalisée du jeu.</p>
+                    <h3 className="text-2xl font-bold mb-4">Game Understanding</h3>
+                    <p className="text-muted-foreground">The AI continuously learns from matches and performances to provide an increasingly accurate and personalized view of the game.</p>
                   </div>
                 </div>
               </div>
@@ -377,14 +377,14 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Section Interface */}
+            {/* Interface Section */}
             <div className="flex flex-col lg:flex-row items-center gap-16">
               <div className="flex-1">
                 <div className="relative group">
                   <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-primary/5 blur-xl rounded-xl transition-all duration-300 group-hover:from-primary/30 group-hover:to-primary/20 group-hover:-inset-5" />
                   <div className="relative bg-card/50 backdrop-blur-sm border border-border p-8 rounded-xl transition-all duration-300 group-hover:border-primary/50">
-                    <h3 className="text-2xl font-bold mb-4">Expérience personnalisée</h3>
-                    <p className="text-muted-foreground">Une interface intuitive qui s'adapte à votre façon de suivre le football et met en avant ce qui compte le plus pour vous.</p>
+                    <h3 className="text-2xl font-bold mb-4">Personalized Experience</h3>
+                    <p className="text-muted-foreground">An intuitive interface that adapts to your way of following football and highlights what matters most to you.</p>
                   </div>
                 </div>
               </div>
@@ -414,9 +414,9 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-24"
           >
-            <h2 className="text-4xl font-bold mb-4">Comment ça marche</h2>
+            <h2 className="text-4xl font-bold mb-4">How it works</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Une nouvelle façon de vivre votre passion pour le football
+              A new way to experience football
             </p>
           </motion.div>
 
@@ -424,29 +424,29 @@ export default function HomePage() {
             {[
               {
                 step: "01",
-                title: "Collecte des données",
-                description: "Connectez vos dispositifs de suivi et importez vos données historiques",
+                title: "Data Collection",
+                description: "Connect your tracking devices and import your historical data",
                 icon: <Activity className="h-8 w-8" />,
                 color: "from-blue-500/20 to-purple-500/20"
               },
               {
                 step: "02",
-                title: "Analyse IA",
-                description: "Notre IA analyse en temps réel les performances et détecte les patterns",
+                title: "AI Analysis",
+                description: "Our AI analyzes performance in real-time and detects patterns",
                 icon: <Brain className="h-8 w-8" />,
                 color: "from-purple-500/20 to-pink-500/20"
               },
               {
                 step: "03",
-                title: "Prédictions",
-                description: "Recevez des alertes préventives et des recommandations personnalisées",
+                title: "Predictions",
+                description: "Receive preventive alerts and personalized recommendations",
                 icon: <Bell className="h-8 w-8" />,
                 color: "from-pink-500/20 to-orange-500/20"
               },
               {
                 step: "04",
-                title: "Optimisation",
-                description: "Ajustez vos stratégies basées sur des données concrètes",
+                title: "Optimization",
+                description: "Adjust your strategies based on concrete data",
                 icon: <Target className="h-8 w-8" />,
                 color: "from-orange-500/20 to-blue-500/20"
               }
@@ -470,7 +470,7 @@ export default function HomePage() {
                         </div>
                       </div>
                       <div className="mt-4 text-center">
-                        <span className="text-sm font-bold text-primary">ÉTAPE</span>
+                        <span className="text-sm font-bold text-primary">STEP</span>
                         <p className="text-2xl font-bold">{item.step}</p>
                       </div>
                     </div>
@@ -510,9 +510,9 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold mb-4">Une expérience complète</h2>
+            <h2 className="text-3xl font-bold mb-4">A Complete Experience</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Tous les outils dont vous avez besoin pour ne rien manquer de vos équipes favorites
+              All the tools you need to stay up to date with your favorite teams
             </p>
           </motion.div>
 
@@ -527,23 +527,23 @@ export default function HomePage() {
                       <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
                         <Brain className="h-6 w-6 text-primary" />
                       </div>
-                      <h3 className="text-2xl font-bold">Intelligence Artificielle Avancée</h3>
+                      <h3 className="text-2xl font-bold">Advanced Artificial Intelligence</h3>
                     </div>
                     <p className="text-muted-foreground mb-8">
-                      Notre IA analyse en continu les performances de vos joueurs, détecte les patterns
-                      et génère des prédictions précises pour optimiser vos stratégies.
+                      Our AI continuously analyzes your players' performance, detects patterns,
+                      and generates accurate predictions to optimize your strategies.
                     </p>
                     <div className="mt-auto grid grid-cols-2 gap-4">
                       <div className="p-4 bg-background/50 rounded-lg">
-                        <h4 className="font-semibold mb-2">Analyse prédictive</h4>
+                        <h4 className="font-semibold mb-2">Predictive Analysis</h4>
                         <p className="text-sm text-muted-foreground">
-                          Anticipez les risques et optimisez les performances
+                          Anticipate risks and optimize performance
                         </p>
                       </div>
                       <div className="p-4 bg-background/50 rounded-lg">
-                        <h4 className="font-semibold mb-2">Apprentissage continu</h4>
+                        <h4 className="font-semibold mb-2">Continuous Learning</h4>
                         <p className="text-sm text-muted-foreground">
-                          L'IA s'améliore avec chaque nouvelle donnée
+                          AI improves with each new data point
                         </p>
                       </div>
                     </div>
@@ -590,9 +590,9 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold mb-4">Ils vivent le football autrement</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Découvrez comment nos utilisateurs vivent leur passion du football
+              <h2 className="text-3xl font-bold mb-4">They live football differently</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Discover how our users experience their passion for football
             </p>
           </motion.div>
 
@@ -619,7 +619,7 @@ export default function HomePage() {
                       <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                       <p className="text-sm text-primary">{testimonial.team}</p>
                     </div>
-          </Card>
+                  </Card>
                 </div>
               </motion.div>
             ))}
@@ -643,9 +643,11 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4">Intégrations</h2>
+            <h2 className="text-4xl font-bold mb-4">
+              Football AI integrates with your favorite tools
+            </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Football IA s'intègre avec vos outils préférés
+              Football AI integrates seamlessly with your favorite tools
             </p>
           </motion.div>
 
@@ -708,9 +710,9 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold mb-4">Tarifs adaptés</h2>
+            <h2 className="text-3xl font-bold mb-4">Flexible Pricing</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Des solutions flexibles pour répondre aux besoins de chaque organisation
+              Flexible solutions to meet every organization's needs
             </p>
           </motion.div>
 
@@ -754,7 +756,7 @@ export default function HomePage() {
                         "from-orange-500/20 to-blue-500/20"
                       } blur-xl rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-700`} />
                       <Button className="relative w-full bg-primary hover:bg-primary/90">
-                        Commencer
+                        Get Started
                         <ArrowRight className="ml-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                       </Button>
                     </div>
@@ -777,16 +779,16 @@ export default function HomePage() {
             className="text-center w-full max-w-5xl"
           >
             <Card className="mx-auto p-12 bg-card border-border">
-              <h2 className="text-3xl font-bold mb-4">Prêt à transformer votre équipe ?</h2>
+              <h2 className="text-3xl font-bold mb-4">Ready to transform your team?</h2>
               <p className="text-muted-foreground max-w-3xl mx-auto mb-8">
-                Rejoignez les clubs qui utilisent déjà Football IA pour optimiser leurs performances 
-                et réduire les blessures
+                Join the clubs already using Football AI to optimize their performance 
+                and reduce injuries
               </p>
               <Link href="/register">
                 <div className="relative group">
                   <div className="absolute -inset-2 bg-gradient-to-r from-primary/30 to-primary/20 blur-xl rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
                   <Button size="lg" className="relative bg-gradient-to-r from-primary to-primary hover:from-primary/80 hover:to-primary/60 w-64 h-14 text-lg">
-                    Créer un compte
+                    Create Account
                     <ArrowRight className="ml-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                   </Button>
                 </div>
@@ -796,11 +798,32 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Newsletter Section */}
+      <section className="py-20">
+        <div className="container px-4">
+          <Card className="max-w-4xl mx-auto p-8 bg-card/50 backdrop-blur-sm border-border">
+            <div className="text-center space-y-4">
+              <h2 className="text-2xl font-bold text-white">Stay Informed</h2>
+              <p className="text-muted-foreground">
+                Subscribe to our newsletter to follow our development progress
+                and be the first to test our new features.
+              </p>
+              <div className="relative group inline-block">
+                <div className="absolute -inset-2 bg-gradient-to-r from-primary/30 to-primary/20 blur-xl rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
+                <button className="relative bg-primary hover:bg-primary/90 text-background font-medium px-8 py-3 rounded-lg">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-20 bg-background/50 border-t border-border">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
-            {/* Colonne 1 - À propos */}
+            {/* Column 1 - About */}
             <div className="space-y-6">
               <div className="relative">
                 <div className="relative flex flex-col items-center">
@@ -810,8 +833,8 @@ export default function HomePage() {
                 </div>
               </div>
               <p className="text-muted-foreground">
-                Première plateforme d'analyse prédictive pour le football professionnel, 
-                alimentée par l'intelligence artificielle.
+                First predictive analysis platform for professional football, 
+                powered by artificial intelligence.
               </p>
               <div className="flex space-x-4">
                 <Link href="#" className="text-muted-foreground hover:text-white transition-colors">
@@ -832,23 +855,23 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Colonne 2 - Produit */}
+            {/* Column 2 - Product */}
             <div className="space-y-6">
-              <h3 className="text-lg font-semibold">Produit</h3>
+              <h3 className="text-lg font-semibold">Product</h3>
               <ul className="space-y-4">
                 <li>
                   <Link href="#features" className="text-muted-foreground hover:text-white transition-colors">
-                    Fonctionnalités
+                    Features
                   </Link>
                 </li>
                 <li>
                   <Link href="#technology" className="text-muted-foreground hover:text-white transition-colors">
-                    Technologie
+                    Technology
                   </Link>
                 </li>
                 <li>
                   <Link href="#pricing" className="text-muted-foreground hover:text-white transition-colors">
-                    Tarifs
+                    Pricing
                   </Link>
                 </li>
                 <li>
@@ -859,9 +882,9 @@ export default function HomePage() {
               </ul>
             </div>
 
-            {/* Colonne 3 - Ressources */}
+            {/* Column 3 - Resources */}
             <div className="space-y-6">
-              <h3 className="text-lg font-semibold">Ressources</h3>
+              <h3 className="text-lg font-semibold">Resources</h3>
               <ul className="space-y-4">
                 <li>
                   <Link href="/blog" className="text-muted-foreground hover:text-white transition-colors">
@@ -876,28 +899,28 @@ export default function HomePage() {
               </ul>
             </div>
 
-            {/* Colonne 4 - Légal */}
+            {/* Column 4 - Legal */}
             <div className="space-y-6">
-              <h3 className="text-lg font-semibold">Légal</h3>
+              <h3 className="text-lg font-semibold">Legal</h3>
               <ul className="space-y-4">
                 <li>
                   <Link href="/privacy" className="text-muted-foreground hover:text-white transition-colors">
-                    Politique de confidentialité
+                    Privacy Policy
                   </Link>
                 </li>
                 <li>
                   <Link href="/terms" className="text-muted-foreground hover:text-white transition-colors">
-                    Conditions d'utilisation
+                    Terms of Use
                   </Link>
                 </li>
                 <li>
                   <Link href="/security" className="text-muted-foreground hover:text-white transition-colors">
-                    Sécurité
+                    Security
                   </Link>
                 </li>
                 <li>
                   <Link href="/gdpr" className="text-muted-foreground hover:text-white transition-colors">
-                    RGPD
+                    GDPR
                   </Link>
                 </li>
               </ul>
@@ -906,7 +929,7 @@ export default function HomePage() {
 
           <div className="mt-16 pt-8 border-t border-border">
             <div className="text-center text-sm text-muted-foreground">
-              <p>© 2024 Football IA. Tous droits réservés.</p>
+              <p>© 2024 Football AI. All rights reserved.</p>
             </div>
           </div>
         </div>

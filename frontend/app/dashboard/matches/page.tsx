@@ -5,13 +5,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { format } from "date-fns"
-import { fr } from "date-fns/locale"
+import { enUS } from "date-fns/locale"
 
 export default function MatchesPage() {
   const { getAllMatches } = useMatches()
   const matches = getAllMatches()
 
-  // Calcul des statistiques
+  // Statistics calculation
   const totalMatches = matches.length
   const wins = matches.filter(match => match.result === "win").length
   const draws = matches.filter(match => match.result === "draw").length
@@ -20,7 +20,7 @@ export default function MatchesPage() {
   const goalsConceded = matches.reduce((acc, match) => acc + match.goalsConceded, 0)
   const cleanSheets = matches.filter(match => match.goalsConceded === 0).length
 
-  // Calcul de la série d'invincibilité
+  // Unbeaten streak calculation
   let unbeatenStreak = 0
   for (let i = matches.length - 1; i >= 0; i--) {
     if (matches[i].result === "win" || matches[i].result === "draw") {
@@ -30,7 +30,7 @@ export default function MatchesPage() {
     }
   }
 
-  // Calcul des moyennes
+  // Averages calculation
   const averageGoalsScored = (goalsScored / totalMatches).toFixed(2)
   const averageGoalsConceded = (goalsConceded / totalMatches).toFixed(2)
   const averagePoints = ((wins * 3 + draws) / totalMatches).toFixed(2)
@@ -41,8 +41,8 @@ export default function MatchesPage() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader>
-            <CardTitle>Total des matches</CardTitle>
-            <CardDescription>Nombre de matches joués</CardDescription>
+            <CardTitle>Total Matches</CardTitle>
+            <CardDescription>Number of matches played</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{totalMatches}</div>
@@ -51,8 +51,8 @@ export default function MatchesPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Victoires</CardTitle>
-            <CardDescription>Nombre de victoires</CardDescription>
+            <CardTitle>Wins</CardTitle>
+            <CardDescription>Number of wins</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-green-500">{wins}</div>
@@ -61,8 +61,8 @@ export default function MatchesPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Nuls</CardTitle>
-            <CardDescription>Nombre de matches nuls</CardDescription>
+            <CardTitle>Draws</CardTitle>
+            <CardDescription>Number of draws</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-yellow-500">{draws}</div>
@@ -71,8 +71,8 @@ export default function MatchesPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Défaites</CardTitle>
-            <CardDescription>Nombre de défaites</CardDescription>
+            <CardTitle>Losses</CardTitle>
+            <CardDescription>Number of losses</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-red-500">{losses}</div>
@@ -81,30 +81,30 @@ export default function MatchesPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Buts marqués</CardTitle>
-            <CardDescription>Total et moyenne par match</CardDescription>
+            <CardTitle>Goals Scored</CardTitle>
+            <CardDescription>Total and average per match</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{goalsScored}</div>
-            <p className="text-sm text-gray-500">Moyenne: {averageGoalsScored}</p>
+            <p className="text-sm text-gray-500">Average: {averageGoalsScored}</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Buts encaissés</CardTitle>
-            <CardDescription>Total et moyenne par match</CardDescription>
+            <CardTitle>Goals Conceded</CardTitle>
+            <CardDescription>Total and average per match</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{goalsConceded}</div>
-            <p className="text-sm text-gray-500">Moyenne: {averageGoalsConceded}</p>
+            <p className="text-sm text-gray-500">Average: {averageGoalsConceded}</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Clean sheets</CardTitle>
-            <CardDescription>Matches sans but encaissé</CardDescription>
+            <CardTitle>Clean Sheets</CardTitle>
+            <CardDescription>Matches without conceding</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{cleanSheets}</div>
@@ -113,8 +113,8 @@ export default function MatchesPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Série d'invincibilité</CardTitle>
-            <CardDescription>Matches sans défaite</CardDescription>
+            <CardTitle>Unbeaten Streak</CardTitle>
+            <CardDescription>Matches without defeat</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{unbeatenStreak}</div>
@@ -125,16 +125,16 @@ export default function MatchesPage() {
       <div className="mt-8">
         <Tabs defaultValue="all">
           <TabsList>
-            <TabsTrigger value="all">Tous les matches</TabsTrigger>
-            <TabsTrigger value="upcoming">À venir</TabsTrigger>
-            <TabsTrigger value="recent">Récents</TabsTrigger>
+            <TabsTrigger value="all">All Matches</TabsTrigger>
+            <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
+            <TabsTrigger value="recent">Recent</TabsTrigger>
           </TabsList>
 
           <TabsContent value="all" className="mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Historique complet</CardTitle>
-                <CardDescription>Tous les matches de la saison</CardDescription>
+                <CardTitle>Complete History</CardTitle>
+                <CardDescription>All matches of the season</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -142,7 +142,7 @@ export default function MatchesPage() {
                     <div key={index} className="flex items-center justify-between p-4 bg-[#1F2937] rounded-lg">
                       <div className="flex items-center space-x-4">
                         <div className="text-sm text-gray-400">
-                          {format(new Date(match.date), 'dd MMM yyyy', { locale: fr })}
+                          {format(new Date(match.date), 'dd MMM yyyy', { locale: enUS })}
                         </div>
                         <div>
                           {match.homeTeam} vs {match.awayTeam}
@@ -162,10 +162,10 @@ export default function MatchesPage() {
                           }
                         >
                           {match.result === "win"
-                            ? "Victoire"
+                            ? "Win"
                             : match.result === "draw"
-                            ? "Nul"
-                            : "Défaite"}
+                            ? "Draw"
+                            : "Loss"}
                         </Badge>
                       </div>
                     </div>
@@ -178,8 +178,8 @@ export default function MatchesPage() {
           <TabsContent value="upcoming" className="mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Prochains matches</CardTitle>
-                <CardDescription>Matches à venir</CardDescription>
+                <CardTitle>Upcoming Matches</CardTitle>
+                <CardDescription>Future matches</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -189,13 +189,13 @@ export default function MatchesPage() {
                       <div key={index} className="flex items-center justify-between p-4 bg-[#1F2937] rounded-lg">
                         <div className="flex items-center space-x-4">
                           <div className="text-sm text-gray-400">
-                            {format(new Date(match.date), 'dd MMM yyyy', { locale: fr })}
+                            {format(new Date(match.date), 'dd MMM yyyy', { locale: enUS })}
                           </div>
                           <div>
                             {match.homeTeam} vs {match.awayTeam}
                           </div>
                         </div>
-                        <Badge variant="outline">À venir</Badge>
+                        <Badge variant="outline">Upcoming</Badge>
                       </div>
                     ))}
                 </div>
@@ -206,8 +206,8 @@ export default function MatchesPage() {
           <TabsContent value="recent" className="mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Derniers résultats</CardTitle>
-                <CardDescription>5 derniers matches</CardDescription>
+                <CardTitle>Recent Results</CardTitle>
+                <CardDescription>Last 5 matches</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -218,7 +218,7 @@ export default function MatchesPage() {
                       <div key={index} className="flex items-center justify-between p-4 bg-[#1F2937] rounded-lg">
                         <div className="flex items-center space-x-4">
                           <div className="text-sm text-gray-400">
-                            {format(new Date(match.date), 'dd MMM yyyy', { locale: fr })}
+                            {format(new Date(match.date), 'dd MMM yyyy', { locale: enUS })}
                           </div>
                           <div>
                             {match.homeTeam} vs {match.awayTeam}
@@ -238,10 +238,10 @@ export default function MatchesPage() {
                             }
                           >
                             {match.result === "win"
-                              ? "Victoire"
+                              ? "Win"
                               : match.result === "draw"
-                              ? "Nul"
-                              : "Défaite"}
+                              ? "Draw"
+                              : "Loss"}
                           </Badge>
                         </div>
                       </div>

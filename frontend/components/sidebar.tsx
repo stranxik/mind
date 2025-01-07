@@ -24,24 +24,24 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    title: "Vue d'ensemble",
+    title: "Overview",
     href: "/dashboard",
     icon: <BarChart3 className="h-5 w-5" />
   },
   {
-    title: "Équipe",
+    title: "Team",
     icon: <Users className="h-5 w-5" />,
     submenu: [
       {
-        title: "Effectif",
+        title: "Squad",
         href: "/dashboard/team"
       },
       {
-        title: "Calendrier",
+        title: "Calendar",
         href: "/dashboard/calendar"
       },
       {
-        title: "Matchs",
+        title: "Matches",
         href: "/dashboard/matches"
       }
     ]
@@ -51,17 +51,17 @@ const navItems: NavItem[] = [
     icon: <Activity className="h-5 w-5" />,
     submenu: [
       {
-        title: "Physique",
+        title: "Physical",
         href: "/dashboard/physical",
         isPersonalized: true
       },
       {
-        title: "Intensité",
+        title: "Intensity",
         href: "/dashboard/intensity",
         isPersonalized: true
       },
       {
-        title: "Médical",
+        title: "Medical",
         href: "/dashboard/medical",
         isPersonalized: true
       },

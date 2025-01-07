@@ -9,16 +9,16 @@ export default function AuthError() {
   const searchParams = useSearchParams()
   const error = searchParams.get("error")
 
-  let errorMessage = "Une erreur s'est produite lors de l'authentification."
+  let errorMessage = "An error occurred during authentication."
   if (error === "CredentialsSignin") {
-    errorMessage = "Email ou mot de passe incorrect."
+    errorMessage = "Incorrect email or password."
   }
 
   return (
     <div className="container flex items-center justify-center min-h-screen py-10">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle>Erreur d'authentification</CardTitle>
+          <CardTitle>Authentication Error</CardTitle>
           <CardDescription>
             {errorMessage}
           </CardDescription>
@@ -26,7 +26,7 @@ export default function AuthError() {
         <CardContent className="flex justify-center">
           <Button asChild>
             <Link href="/login">
-              Retourner à la page de connexion
+              Return to login page
             </Link>
           </Button>
         </CardContent>

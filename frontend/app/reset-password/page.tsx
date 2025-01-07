@@ -117,9 +117,9 @@ export default function ResetPasswordPage() {
               <Card className="relative p-8 bg-card/50 backdrop-blur-sm border-border transition-all duration-300 group-hover:border-primary/50">
                 {!token ? (
                   <>
-                    <h2 className="text-2xl font-bold mb-2">Mot de passe oublié ?</h2>
+                    <h2 className="text-2xl font-bold mb-2">Forgot your password?</h2>
                     <p className="text-muted-foreground mb-6">
-                      Entrez votre adresse email pour recevoir un lien de réinitialisation
+                      Enter your email address to receive a reset link
                     </p>
                     {error && (
                       <div className="mb-6 p-3 rounded-lg bg-destructive/10 border border-destructive/20 text-destructive">
@@ -133,11 +133,11 @@ export default function ResetPasswordPage() {
                         className="text-center"
                       >
                         <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/20 text-green-500 mb-6">
-                          Si un compte existe avec cette adresse email, vous recevrez un lien de réinitialisation dans quelques minutes.
+                          If an account exists with this email address, you will receive a reset link in a few minutes.
                         </div>
                         <Link href="/login">
                           <Button variant="outline" className="w-full">
-                            Retour à la connexion
+                            Back to login
                           </Button>
                         </Link>
                       </motion.div>
@@ -152,7 +152,7 @@ export default function ResetPasswordPage() {
                             <Input
                               id="email"
                               type="email"
-                              placeholder="vous@exemple.com"
+                              placeholder="you@example.com"
                               value={email}
                               onChange={(e) => setEmail(e.target.value)}
                               className="pl-10"
@@ -170,10 +170,10 @@ export default function ResetPasswordPage() {
                             disabled={loading}
                           >
                             {loading ? (
-                              "Envoi en cours..."
+                              "Sending..."
                             ) : (
                               <>
-                                Envoyer les instructions
+                                Send instructions
                                 <ArrowRight className="ml-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                               </>
                             )}
@@ -184,21 +184,16 @@ export default function ResetPasswordPage() {
                   </>
                 ) : (
                   <>
-                    <h2 className="text-2xl font-bold mb-6">Réinitialiser le mot de passe</h2>
+                    <h2 className="text-2xl font-bold mb-6">Reset password</h2>
                     {error && (
                       <div className="mb-6 p-3 rounded-lg bg-destructive/10 border border-destructive/20 text-destructive">
                         {error}
                       </div>
                     )}
-                    {success && (
-                      <div className="mb-6 p-3 rounded-lg bg-green-500/10 border border-green-500/20 text-green-500">
-                        Votre mot de passe a été réinitialisé avec succès. Redirection...
-                      </div>
-                    )}
                     <form onSubmit={handleResetSubmit} className="space-y-6">
                       <div className="space-y-2">
                         <label htmlFor="password" className="text-sm font-medium">
-                          Nouveau mot de passe
+                          New password
                         </label>
                         <div className="relative">
                           <Lock className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
@@ -218,7 +213,7 @@ export default function ResetPasswordPage() {
 
                       <div className="space-y-2">
                         <label htmlFor="confirmPassword" className="text-sm font-medium">
-                          Confirmer le mot de passe
+                          Confirm password
                         </label>
                         <div className="relative">
                           <Lock className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
@@ -244,10 +239,10 @@ export default function ResetPasswordPage() {
                           disabled={loading}
                         >
                           {loading ? (
-                            "Réinitialisation en cours..."
+                            "Resetting..."
                           ) : (
                             <>
-                              Réinitialiser le mot de passe
+                              Reset password
                               <ArrowRight className="ml-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                             </>
                           )}

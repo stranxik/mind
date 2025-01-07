@@ -127,11 +127,11 @@ export default function RegisterPage() {
               <div className="relative group">
                 <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
                 <Card className="relative p-8 bg-card/50 backdrop-blur-sm border-border transition-all duration-300 group-hover:border-primary/50 w-[500px]">
-                  <h2 className="text-2xl font-bold mb-6">Sélectionner vos équipes</h2>
+                  <h2 className="text-2xl font-bold mb-6">Select your teams</h2>
                   <p className="text-muted-foreground mb-6">
                     {formData.plan === "pro" 
-                      ? `Vous pouvez sélectionner jusqu'à 5 équipes (${formData.favoriteTeams.length}/5)`
-                      : "Sélectionnez autant d'équipes que vous le souhaitez"}
+                      ? `You can select up to 5 teams (${formData.favoriteTeams.length}/5)`
+                      : "Select as many teams as you want"}
                   </p>
 
                   <div className="space-y-4">
@@ -142,7 +142,7 @@ export default function RegisterPage() {
                         className="w-full mb-4"
                         disabled={loading}
                       >
-                        Tout sélectionner
+                        Select all
                       </Button>
                     )}
                     
@@ -227,7 +227,7 @@ export default function RegisterPage() {
             <div className="relative group">
               <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
               <Card className="relative p-8 bg-card/50 backdrop-blur-sm border-border transition-all duration-300 group-hover:border-primary/50 w-[500px]">
-                <h2 className="text-2xl font-bold mb-6">Créer un compte</h2>
+                <h2 className="text-2xl font-bold mb-6">Create an account</h2>
                 {error && (
                   <div className="mb-6 p-3 rounded-lg bg-destructive/10 border border-destructive/20 text-destructive">
                     {error}
@@ -238,9 +238,9 @@ export default function RegisterPage() {
                     <label className="text-sm font-medium">Plan</label>
                     <div className="grid grid-cols-3 gap-4">
                       {[
-                        { id: 'free', name: 'Gratuit', description: 'Pour débuter' },
-                        { id: 'pro', name: 'Pro', description: 'Pour suivre plusieurs équipes' },
-                        { id: 'influence', name: 'Influence', description: 'Pour les experts' }
+                        { id: 'free', name: 'Free', description: 'To get started' },
+                        { id: 'pro', name: 'Pro', description: 'To follow multiple teams' },
+                        { id: 'influence', name: 'Influence', description: 'For experts' }
                       ].map((plan) => (
                         <div
                           key={plan.id}
@@ -287,14 +287,14 @@ export default function RegisterPage() {
 
                   <div className="space-y-2">
                     <label htmlFor="nickname" className="text-sm font-medium">
-                      Pseudo
+                      Nickname
                     </label>
                     <div className="relative">
                       <User className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
                       <Input
                         id="nickname"
                         type="text"
-                        placeholder="Votre pseudo"
+                        placeholder="Your nickname"
                         value={formData.nickname}
                         onChange={(e) => setFormData(prev => ({ ...prev, nickname: e.target.value }))}
                         className="pl-10"
@@ -313,7 +313,7 @@ export default function RegisterPage() {
                       <Input
                         id="email"
                         type="email"
-                        placeholder="vous@exemple.com"
+                        placeholder="you@example.com"
                         value={formData.email}
                         onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                         className="pl-10"
@@ -325,7 +325,7 @@ export default function RegisterPage() {
 
                   <div className="space-y-2">
                     <label htmlFor="password" className="text-sm font-medium">
-                      Mot de passe
+                      Password
                     </label>
                     <div className="relative">
                       <Lock className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
@@ -350,15 +350,15 @@ export default function RegisterPage() {
                       disabled={loading || (formData.plan === "free" && !formData.favoriteTeams[0])}
                     >
                       {loading ? (
-                        "Création en cours..."
+                        "Creating account..."
                       ) : formData.plan === "free" ? (
                         <>
-                          Créer mon compte
+                          Create my account
                           <ArrowRight className="ml-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                         </>
                       ) : (
                         <>
-                          Suivant
+                          Next
                           <ArrowRight className="ml-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                         </>
                       )}
@@ -368,9 +368,9 @@ export default function RegisterPage() {
 
                 <div className="mt-6 text-center">
                   <p className="text-sm text-muted-foreground">
-                    Déjà un compte ?{" "}
+                    Already have an account?{" "}
                     <Link href="/login" className="text-primary hover:underline">
-                      Se connecter
+                      Sign in
                     </Link>
                   </p>
                 </div>

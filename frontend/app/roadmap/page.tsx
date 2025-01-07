@@ -131,9 +131,9 @@ export default function RoadmapPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <span className="text-white">Façonnons</span>{" "}
+              <span className="text-white">Shaping</span>{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
-                l'avenir du football
+                the future of football
               </span>
             </motion.h1>
             
@@ -143,9 +143,9 @@ export default function RoadmapPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Notre vision est de révolutionner l'analyse sportive en combinant l'intelligence 
-              artificielle et l'expertise humaine. Découvrez les innovations qui façonneront 
-              le futur de la performance.
+              Our vision is to revolutionize sports analytics by combining artificial 
+              intelligence with human expertise. Discover the innovations that will 
+              shape the future of performance.
             </motion.p>
 
             <motion.div
@@ -155,9 +155,9 @@ export default function RoadmapPage() {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               {[
-                { label: "Fonctionnalités", value: "25+" },
-                { label: "Mises à jour", value: "150+" },
-                { label: "Équipes", value: "10" }
+                { label: "Features", value: "25+" },
+                { label: "Updates", value: "150+" },
+                { label: "Teams", value: "10" }
               ].map((stat, index) => (
                 <div key={index} className="space-y-2">
                   <h4 className="text-4xl font-bold text-white">{stat.value}</h4>

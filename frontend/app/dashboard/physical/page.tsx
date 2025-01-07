@@ -14,8 +14,8 @@ export default function PhysicalPage() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader>
-            <CardTitle>Distance moyenne</CardTitle>
-            <CardDescription>Distance moyenne par match</CardDescription>
+            <CardTitle>Average Distance</CardTitle>
+            <CardDescription>Average distance per match</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{teamStats?.distance.total.toFixed(1)} km</div>
@@ -24,8 +24,8 @@ export default function PhysicalPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Vitesse maximale</CardTitle>
-            <CardDescription>Vitesse maximale atteinte</CardDescription>
+            <CardTitle>Maximum Speed</CardTitle>
+            <CardDescription>Maximum speed reached</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{teamStats?.speed.max.toFixed(1)} km/h</div>
@@ -35,7 +35,7 @@ export default function PhysicalPage() {
         <Card>
           <CardHeader>
             <CardTitle>Sprints</CardTitle>
-            <CardDescription>Distance en sprint</CardDescription>
+            <CardDescription>Sprint distance</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{teamStats?.distance.sprint.toFixed(1)} km</div>
@@ -44,8 +44,8 @@ export default function PhysicalPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Intensité</CardTitle>
-            <CardDescription>Score de récupération</CardDescription>
+            <CardTitle>Intensity</CardTitle>
+            <CardDescription>Recovery score</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{teamStats?.recovery.score}%</div>
@@ -57,15 +57,15 @@ export default function PhysicalPage() {
         <Tabs defaultValue="distance">
           <TabsList>
             <TabsTrigger value="distance">Distance</TabsTrigger>
-            <TabsTrigger value="speed">Vitesse</TabsTrigger>
-            <TabsTrigger value="intensity">Intensité</TabsTrigger>
+            <TabsTrigger value="speed">Speed</TabsTrigger>
+            <TabsTrigger value="intensity">Intensity</TabsTrigger>
           </TabsList>
 
           <TabsContent value="distance" className="mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Distance par joueur</CardTitle>
-                <CardDescription>Distance parcourue par match</CardDescription>
+                <CardTitle>Distance per Player</CardTitle>
+                <CardDescription>Distance covered per match</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -77,7 +77,7 @@ export default function PhysicalPage() {
                       </div>
                       <div className="text-right">
                         <p className="font-medium">{player.stats.distance.total.toFixed(1)} km</p>
-                        <p className="text-sm text-gray-400">par match</p>
+                        <p className="text-sm text-gray-400">per match</p>
                       </div>
                     </div>
                   ))}
@@ -89,8 +89,8 @@ export default function PhysicalPage() {
           <TabsContent value="speed" className="mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Vitesse par joueur</CardTitle>
-                <CardDescription>Vitesse maximale atteinte</CardDescription>
+                <CardTitle>Speed per Player</CardTitle>
+                <CardDescription>Maximum speed reached</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -102,7 +102,7 @@ export default function PhysicalPage() {
                       </div>
                       <div className="text-right">
                         <p className="font-medium">{player.stats.speed.max.toFixed(1)} km/h</p>
-                        <p className="text-sm text-gray-400">vitesse max</p>
+                        <p className="text-sm text-gray-400">max speed</p>
                       </div>
                     </div>
                   ))}
@@ -114,8 +114,8 @@ export default function PhysicalPage() {
           <TabsContent value="intensity" className="mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Intensité par joueur</CardTitle>
-                <CardDescription>Score de récupération</CardDescription>
+                <CardTitle>Intensity per Player</CardTitle>
+                <CardDescription>Recovery score</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -127,7 +127,7 @@ export default function PhysicalPage() {
                       </div>
                       <div className="text-right">
                         <p className="font-medium">{player.stats.recovery.score}%</p>
-                        <p className="text-sm text-gray-400">score de récupération</p>
+                        <p className="text-sm text-gray-400">recovery score</p>
                       </div>
                     </div>
                   ))}

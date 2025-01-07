@@ -14,45 +14,45 @@ export default function DuelsPage() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader>
-            <CardTitle>Duels aériens</CardTitle>
-            <CardDescription>Pourcentage de réussite</CardDescription>
+            <CardTitle>Aerial Duels</CardTitle>
+            <CardDescription>Success rate</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{teamStats?.aerial.success.toFixed(1)}%</div>
-            <p className="text-sm text-gray-400">{teamStats?.aerial.won} gagnés sur {teamStats?.aerial.total}</p>
+            <p className="text-sm text-gray-400">{teamStats?.aerial.won} won out of {teamStats?.aerial.total}</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Duels au sol</CardTitle>
-            <CardDescription>Pourcentage de réussite</CardDescription>
+            <CardTitle>Ground Duels</CardTitle>
+            <CardDescription>Success rate</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{teamStats?.ground.success.toFixed(1)}%</div>
-            <p className="text-sm text-gray-400">{teamStats?.ground.won} gagnés sur {teamStats?.ground.total}</p>
+            <p className="text-sm text-gray-400">{teamStats?.ground.won} won out of {teamStats?.ground.total}</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Tacles</CardTitle>
-            <CardDescription>Pourcentage de réussite</CardDescription>
+            <CardTitle>Tackles</CardTitle>
+            <CardDescription>Success rate</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{teamStats?.tackle.success.toFixed(1)}%</div>
-            <p className="text-sm text-gray-400">{teamStats?.tackle.won} gagnés sur {teamStats?.tackle.total}</p>
+            <p className="text-sm text-gray-400">{teamStats?.tackle.won} won out of {teamStats?.tackle.total}</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
             <CardTitle>Dribbles</CardTitle>
-            <CardDescription>Pourcentage de réussite</CardDescription>
+            <CardDescription>Success rate</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{teamStats?.dribble.success.toFixed(1)}%</div>
-            <p className="text-sm text-gray-400">{teamStats?.dribble.won} gagnés sur {teamStats?.dribble.total}</p>
+            <p className="text-sm text-gray-400">{teamStats?.dribble.won} won out of {teamStats?.dribble.total}</p>
           </CardContent>
         </Card>
       </div>
@@ -60,18 +60,18 @@ export default function DuelsPage() {
       <div className="mt-8">
         <Tabs defaultValue="all">
           <TabsList>
-            <TabsTrigger value="all">Tous les duels</TabsTrigger>
-            <TabsTrigger value="aerial">Duels aériens</TabsTrigger>
-            <TabsTrigger value="ground">Duels au sol</TabsTrigger>
-            <TabsTrigger value="tackle">Tacles</TabsTrigger>
+            <TabsTrigger value="all">All Duels</TabsTrigger>
+            <TabsTrigger value="aerial">Aerial Duels</TabsTrigger>
+            <TabsTrigger value="ground">Ground Duels</TabsTrigger>
+            <TabsTrigger value="tackle">Tackles</TabsTrigger>
             <TabsTrigger value="dribble">Dribbles</TabsTrigger>
           </TabsList>
 
           <TabsContent value="all" className="mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Statistiques par joueur</CardTitle>
-                <CardDescription>Tous types de duels confondus</CardDescription>
+                <CardTitle>Player Statistics</CardTitle>
+                <CardDescription>All types of duels combined</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -100,7 +100,7 @@ export default function DuelsPage() {
                             player.duels.ground.won +
                             player.duels.tackle.won +
                             player.duels.dribble.won}{" "}
-                          gagnés sur{" "}
+                          won out of{" "}
                           {player.duels.aerial.total +
                             player.duels.ground.total +
                             player.duels.tackle.total +
@@ -117,8 +117,8 @@ export default function DuelsPage() {
           <TabsContent value="aerial" className="mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Duels aériens par joueur</CardTitle>
-                <CardDescription>Statistiques des duels aériens</CardDescription>
+                <CardTitle>Aerial Duels by Player</CardTitle>
+                <CardDescription>Aerial duels statistics</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -131,7 +131,7 @@ export default function DuelsPage() {
                       <div className="text-right">
                         <p className="font-medium">{player.duels.aerial.success.toFixed(1)}%</p>
                         <p className="text-sm text-gray-400">
-                          {player.duels.aerial.won} gagnés sur {player.duels.aerial.total}
+                          {player.duels.aerial.won} won out of {player.duels.aerial.total}
                         </p>
                       </div>
                     </div>
@@ -144,8 +144,8 @@ export default function DuelsPage() {
           <TabsContent value="ground" className="mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Duels au sol par joueur</CardTitle>
-                <CardDescription>Statistiques des duels au sol</CardDescription>
+                <CardTitle>Ground Duels by Player</CardTitle>
+                <CardDescription>Ground duels statistics</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -158,7 +158,7 @@ export default function DuelsPage() {
                       <div className="text-right">
                         <p className="font-medium">{player.duels.ground.success.toFixed(1)}%</p>
                         <p className="text-sm text-gray-400">
-                          {player.duels.ground.won} gagnés sur {player.duels.ground.total}
+                          {player.duels.ground.won} won out of {player.duels.ground.total}
                         </p>
                       </div>
                     </div>
@@ -171,8 +171,8 @@ export default function DuelsPage() {
           <TabsContent value="tackle" className="mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Tacles par joueur</CardTitle>
-                <CardDescription>Statistiques des tacles</CardDescription>
+                <CardTitle>Tackles by Player</CardTitle>
+                <CardDescription>Tackles statistics</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -185,7 +185,7 @@ export default function DuelsPage() {
                       <div className="text-right">
                         <p className="font-medium">{player.duels.tackle.success.toFixed(1)}%</p>
                         <p className="text-sm text-gray-400">
-                          {player.duels.tackle.won} gagnés sur {player.duels.tackle.total}
+                          {player.duels.tackle.won} won out of {player.duels.tackle.total}
                         </p>
                       </div>
                     </div>
@@ -198,8 +198,8 @@ export default function DuelsPage() {
           <TabsContent value="dribble" className="mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Dribbles par joueur</CardTitle>
-                <CardDescription>Statistiques des dribbles</CardDescription>
+                <CardTitle>Dribbles by Player</CardTitle>
+                <CardDescription>Dribbles statistics</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -212,7 +212,7 @@ export default function DuelsPage() {
                       <div className="text-right">
                         <p className="font-medium">{player.duels.dribble.success.toFixed(1)}%</p>
                         <p className="text-sm text-gray-400">
-                          {player.duels.dribble.won} gagnés sur {player.duels.dribble.total}
+                          {player.duels.dribble.won} won out of {player.duels.dribble.total}
                         </p>
                       </div>
                     </div>

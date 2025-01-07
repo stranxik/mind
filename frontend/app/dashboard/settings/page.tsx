@@ -5,7 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
-// Données mockées
+// Mock data
 const availableTeams = [
   "Paris Saint-Germain",
   "Olympique de Marseille",
@@ -17,18 +17,18 @@ const availableTeams = [
 
 const teamPlayers = {
   "Paris Saint-Germain": [
-    { id: 1, name: "Kylian Mbappé", position: "Attaquant" },
-    { id: 2, name: "Ousmane Dembélé", position: "Ailier" },
-    { id: 3, name: "Warren Zaïre-Emery", position: "Milieu" },
-    { id: 4, name: "Marquinhos", position: "Défenseur" },
-    { id: 5, name: "Gianluigi Donnarumma", position: "Gardien" }
+    { id: 1, name: "Kylian Mbappé", position: "Forward" },
+    { id: 2, name: "Ousmane Dembélé", position: "Winger" },
+    { id: 3, name: "Warren Zaïre-Emery", position: "Midfielder" },
+    { id: 4, name: "Marquinhos", position: "Defender" },
+    { id: 5, name: "Gianluigi Donnarumma", position: "Goalkeeper" }
   ],
   "Olympique de Marseille": [
-    { id: 6, name: "Pierre-Emerick Aubameyang", position: "Attaquant" },
-    { id: 7, name: "Joaquin Correa", position: "Attaquant" },
-    { id: 8, name: "Geoffrey Kondogbia", position: "Milieu" },
-    { id: 9, name: "Chancel Mbemba", position: "Défenseur" },
-    { id: 10, name: "Pau Lopez", position: "Gardien" }
+    { id: 6, name: "Pierre-Emerick Aubameyang", position: "Forward" },
+    { id: 7, name: "Joaquin Correa", position: "Forward" },
+    { id: 8, name: "Geoffrey Kondogbia", position: "Midfielder" },
+    { id: 9, name: "Chancel Mbemba", position: "Defender" },
+    { id: 10, name: "Pau Lopez", position: "Goalkeeper" }
   ]
 }
 
@@ -39,8 +39,8 @@ export default function SettingsPage() {
     <div className="p-8">
       <Tabs defaultValue="general" className="space-y-6">
         <TabsList>
-          <TabsTrigger value="general">Général</TabsTrigger>
-          <TabsTrigger value="personalization">Personnalisation</TabsTrigger>
+          <TabsTrigger value="general">General</TabsTrigger>
+          <TabsTrigger value="personalization">Personalization</TabsTrigger>
           <TabsTrigger value="notifications">Notifications</TabsTrigger>
         </TabsList>
 
@@ -48,31 +48,31 @@ export default function SettingsPage() {
           <div className="grid gap-6">
             <Card>
               <CardHeader>
-                <CardTitle>Préférences générales</CardTitle>
+                <CardTitle>General Preferences</CardTitle>
                 <CardDescription>
-                  Configurez les paramètres généraux de votre application
+                  Configure your application's general settings
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="font-medium">Langue</h3>
+                      <h3 className="font-medium">Language</h3>
                       <p className="text-sm text-gray-400">
-                        Choisissez la langue de l'interface
+                        Choose the interface language
                       </p>
                     </div>
                     <select className="bg-[#1F2937] border border-gray-800 rounded-lg px-3 py-2">
-                      <option value="fr">Français</option>
+                      <option value="fr">French</option>
                       <option value="en">English</option>
                     </select>
                   </div>
 
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="font-medium">Fuseau horaire</h3>
+                      <h3 className="font-medium">Time Zone</h3>
                       <p className="text-sm text-gray-400">
-                        Définissez votre fuseau horaire
+                        Set your time zone
                       </p>
                     </div>
                     <select className="bg-[#1F2937] border border-gray-800 rounded-lg px-3 py-2">
@@ -83,15 +83,15 @@ export default function SettingsPage() {
 
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="font-medium">Thème</h3>
+                      <h3 className="font-medium">Theme</h3>
                       <p className="text-sm text-gray-400">
-                        Choisissez le thème de l'interface
+                        Choose the interface theme
                       </p>
                     </div>
                     <select className="bg-[#1F2937] border border-gray-800 rounded-lg px-3 py-2">
-                      <option value="dark">Sombre</option>
-                      <option value="light">Clair</option>
-                      <option value="system">Système</option>
+                      <option value="dark">Dark</option>
+                      <option value="light">Light</option>
+                      <option value="system">System</option>
                     </select>
                   </div>
                 </div>
@@ -104,15 +104,15 @@ export default function SettingsPage() {
           <div className="grid gap-6">
             <Card>
               <CardHeader>
-                <CardTitle>Équipe favorite</CardTitle>
+                <CardTitle>Favorite Team</CardTitle>
                 <CardDescription>
-                  Sélectionnez votre équipe favorite et suivez ses joueurs
+                  Select your favorite team and follow its players
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-6">
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Équipe</label>
+                    <label className="text-sm font-medium mb-2 block">Team</label>
                     <select 
                       className="w-full bg-[#1F2937] border border-gray-800 rounded-lg px-3 py-2"
                       value={selectedTeam}
@@ -128,9 +128,9 @@ export default function SettingsPage() {
 
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <label className="text-sm font-medium">Joueurs suivis</label>
+                      <label className="text-sm font-medium">Followed Players</label>
                       <Badge variant="outline" className="bg-blue-500/10 text-blue-500">
-                        Auto-suivi
+                        Auto-follow
                       </Badge>
                     </div>
                     <div className="space-y-2 max-h-[300px] overflow-y-auto rounded-lg border border-gray-800 p-2">
@@ -153,20 +153,20 @@ export default function SettingsPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Statistiques préférées</CardTitle>
+                <CardTitle>Preferred Statistics</CardTitle>
                 <CardDescription>
-                  Choisissez les statistiques à mettre en avant
+                  Choose which statistics to highlight
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   {[
-                    { id: "goals", name: "Buts", checked: true },
-                    { id: "assists", name: "Passes décisives", checked: true },
+                    { id: "goals", name: "Goals", checked: true },
+                    { id: "assists", name: "Assists", checked: true },
                     { id: "possession", name: "Possession", checked: true },
-                    { id: "shots", name: "Tirs", checked: false },
+                    { id: "shots", name: "Shots", checked: false },
                     { id: "passes", name: "Passes", checked: false },
-                    { id: "tackles", name: "Tacles", checked: false }
+                    { id: "tackles", name: "Tackles", checked: false }
                   ].map((stat) => (
                     <div key={stat.id} className="flex items-center justify-between">
                       <div>
@@ -191,32 +191,32 @@ export default function SettingsPage() {
         <TabsContent value="notifications">
           <Card>
             <CardHeader>
-              <CardTitle>Préférences de notifications</CardTitle>
+              <CardTitle>Notification Preferences</CardTitle>
               <CardDescription>
-                Configurez vos préférences de notifications
+                Configure your notification preferences
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 {[
                   {
-                    title: "Notifications par email",
-                    description: "Recevez des mises à jour par email",
+                    title: "Email Notifications",
+                    description: "Receive updates via email",
                     checked: true
                   },
                   {
-                    title: "Notifications push",
-                    description: "Recevez des notifications push dans l'application",
+                    title: "Push Notifications",
+                    description: "Receive push notifications in the app",
                     checked: true
                   },
                   {
-                    title: "Notifications de match",
-                    description: "Soyez informé des nouveaux matchs",
+                    title: "Match Notifications",
+                    description: "Be informed about new matches",
                     checked: true
                   },
                   {
-                    title: "Rapports hebdomadaires",
-                    description: "Recevez un résumé hebdomadaire",
+                    title: "Weekly Reports",
+                    description: "Receive a weekly summary",
                     checked: false
                   }
                 ].map((notification, index) => (

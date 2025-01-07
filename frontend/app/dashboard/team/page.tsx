@@ -15,8 +15,8 @@ export default function TeamPage() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader>
-            <CardTitle>Effectif total</CardTitle>
-            <CardDescription>Nombre total de joueurs</CardDescription>
+            <CardTitle>Total Squad</CardTitle>
+            <CardDescription>Total number of players</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{players.length}</div>
@@ -25,18 +25,18 @@ export default function TeamPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Âge moyen</CardTitle>
-            <CardDescription>Moyenne d'âge de l'équipe</CardDescription>
+            <CardTitle>Average Age</CardTitle>
+            <CardDescription>Team average age</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{teamStats?.averageAge} ans</div>
+            <div className="text-2xl font-bold">{teamStats?.averageAge} years</div>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Blessés</CardTitle>
-            <CardDescription>Joueurs actuellement blessés</CardDescription>
+            <CardTitle>Injured</CardTitle>
+            <CardDescription>Currently injured players</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{teamStats?.injuredCount}</div>
@@ -45,8 +45,8 @@ export default function TeamPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Valeur</CardTitle>
-            <CardDescription>Valeur totale de l'effectif</CardDescription>
+            <CardTitle>Value</CardTitle>
+            <CardDescription>Total squad value</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{teamStats?.totalValue}M€</div>
@@ -57,18 +57,18 @@ export default function TeamPage() {
       <div className="mt-8">
         <Tabs defaultValue="all">
           <TabsList>
-            <TabsTrigger value="all">Tous les joueurs</TabsTrigger>
-            <TabsTrigger value="attackers">Attaquants</TabsTrigger>
-            <TabsTrigger value="midfielders">Milieux</TabsTrigger>
-            <TabsTrigger value="defenders">Défenseurs</TabsTrigger>
-            <TabsTrigger value="goalkeepers">Gardiens</TabsTrigger>
+            <TabsTrigger value="all">All Players</TabsTrigger>
+            <TabsTrigger value="attackers">Forwards</TabsTrigger>
+            <TabsTrigger value="midfielders">Midfielders</TabsTrigger>
+            <TabsTrigger value="defenders">Defenders</TabsTrigger>
+            <TabsTrigger value="goalkeepers">Goalkeepers</TabsTrigger>
           </TabsList>
 
           <TabsContent value="all" className="mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Effectif complet</CardTitle>
-                <CardDescription>Liste de tous les joueurs</CardDescription>
+                <CardTitle>Complete Squad</CardTitle>
+                <CardDescription>List of all players</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -86,7 +86,7 @@ export default function TeamPage() {
                           <p className="text-sm">{player.age} ans</p>
                         </div>
                         {player.status === "injured" && (
-                          <Badge variant="destructive">Blessé</Badge>
+                          <Badge variant="destructive">Injured</Badge>
                         )}
                       </div>
                     </div>
@@ -99,8 +99,8 @@ export default function TeamPage() {
           <TabsContent value="attackers" className="mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Attaquants</CardTitle>
-                <CardDescription>Liste des attaquants</CardDescription>
+                <CardTitle>Forwards</CardTitle>
+                <CardDescription>List of forwards</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -120,7 +120,7 @@ export default function TeamPage() {
                             <p className="text-sm">{player.age} ans</p>
                           </div>
                           {player.status === "injured" && (
-                            <Badge variant="destructive">Blessé</Badge>
+                            <Badge variant="destructive">Injured</Badge>
                           )}
                         </div>
                       </div>
@@ -133,8 +133,8 @@ export default function TeamPage() {
           <TabsContent value="midfielders" className="mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Milieux</CardTitle>
-                <CardDescription>Liste des milieux</CardDescription>
+                <CardTitle>Midfielders</CardTitle>
+                <CardDescription>List of midfielders</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -154,7 +154,7 @@ export default function TeamPage() {
                             <p className="text-sm">{player.age} ans</p>
                           </div>
                           {player.status === "injured" && (
-                            <Badge variant="destructive">Blessé</Badge>
+                            <Badge variant="destructive">Injured</Badge>
                           )}
                         </div>
                       </div>
@@ -167,8 +167,8 @@ export default function TeamPage() {
           <TabsContent value="defenders" className="mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Défenseurs</CardTitle>
-                <CardDescription>Liste des défenseurs</CardDescription>
+                <CardTitle>Defenders</CardTitle>
+                <CardDescription>List of defenders</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -188,7 +188,7 @@ export default function TeamPage() {
                             <p className="text-sm">{player.age} ans</p>
                           </div>
                           {player.status === "injured" && (
-                            <Badge variant="destructive">Blessé</Badge>
+                            <Badge variant="destructive">Injured</Badge>
                           )}
                         </div>
                       </div>
@@ -201,8 +201,8 @@ export default function TeamPage() {
           <TabsContent value="goalkeepers" className="mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Gardiens</CardTitle>
-                <CardDescription>Liste des gardiens</CardDescription>
+                <CardTitle>Goalkeepers</CardTitle>
+                <CardDescription>List of goalkeepers</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -222,7 +222,7 @@ export default function TeamPage() {
                             <p className="text-sm">{player.age} ans</p>
                           </div>
                           {player.status === "injured" && (
-                            <Badge variant="destructive">Blessé</Badge>
+                            <Badge variant="destructive">Injured</Badge>
                           )}
                         </div>
                       </div>

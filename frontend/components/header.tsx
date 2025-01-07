@@ -10,16 +10,16 @@ import { Logo } from "@/components/ui/logo"
 
 const navigation = [
   {
-    name: "Produit",
+    name: "Product",
     items: [
-      { name: "Fonctionnalités", href: "#features", isAnchor: true },
-      { name: "Technologie", href: "#technology", isAnchor: true },
-      { name: "Tarifs", href: "#pricing", isAnchor: true },
+      { name: "Features", href: "#features", isAnchor: true },
+      { name: "Technology", href: "#technology", isAnchor: true },
+      { name: "Pricing", href: "#pricing", isAnchor: true },
       { name: "Roadmap", href: "/roadmap", isAnchor: false }
     ]
   },
   {
-    name: "Ressources",
+    name: "Resources",
     items: [
       { name: "Blog", href: "/blog", isAnchor: false },
       { name: "Support", href: "/support", isAnchor: false }
@@ -87,14 +87,14 @@ export function Header() {
             <div className="flex items-center space-x-4">
               <Link href="/login">
                 <Button variant="ghost" className="text-gray-300 hover:text-white">
-                  Connexion
+                  Login
                 </Button>
               </Link>
               <Link href="/register">
                 <div className="relative group">
                   <div className="absolute -inset-2 bg-gradient-to-r from-primary/30 to-primary/20 blur-xl rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
                   <Button className="relative bg-gradient-to-r from-primary to-primary hover:from-primary/80 hover:to-primary/60">
-                    Créer un compte
+                    Create Account
                   </Button>
                 </div>
               </Link>
@@ -154,14 +154,14 @@ export function Header() {
                   <div className="pt-4 space-y-4">
                     <Link href="/login">
                       <Button variant="outline" className="w-full">
-                        Connexion
+                        Login
                       </Button>
                     </Link>
                     <Link href="/register">
                       <div className="relative group">
                         <div className="absolute -inset-2 bg-gradient-to-r from-primary/30 to-primary/20 blur-xl rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
                         <Button className="relative w-full bg-card/90 backdrop-blur-sm border-border hover:bg-card/70">
-                          Créer un compte
+                          Create Account
                         </Button>
                       </div>
                     </Link>

@@ -23,7 +23,7 @@ export function Header() {
                 pathname === '/stats' ? 'text-foreground' : 'text-foreground/60'
               }`}
             >
-              Statistiques
+              Statistics
             </Link>
             <Link
               href="/assistant"
@@ -31,7 +31,7 @@ export function Header() {
                 pathname === '/assistant' ? 'text-foreground' : 'text-foreground/60'
               }`}
             >
-              Assistant IA
+              AI Assistant
             </Link>
           </nav>
         </div>
